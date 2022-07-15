@@ -38,7 +38,7 @@ public class CrearPerfil extends javax.swing.JFrame {
 
         label1.setBackground(new java.awt.Color(0, 0, 0));
         label1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        label1.setForeground(new java.awt.Color(255, 0, 0));
+        label1.setForeground(new java.awt.Color(255, 255, 0));
         label1.setText("CREAR PERFIL");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
