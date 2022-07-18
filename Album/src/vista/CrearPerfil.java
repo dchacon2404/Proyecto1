@@ -131,9 +131,9 @@ public class CrearPerfil extends javax.swing.JFrame {
         headLayout.setHorizontalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headLayout.createSequentialGroup()
-                .addGap(234, 234, 234)
+                .addGap(240, 240, 240)
                 .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         headLayout.setVerticalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
