@@ -1,5 +1,6 @@
 package vista;
 
+import Controlador.ControladorPerfil;
 import java.awt.Color;
 
 public class Login extends javax.swing.JFrame {
@@ -103,9 +104,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        btnCrearP.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCrearP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCrearP.setForeground(new java.awt.Color(255, 255, 0));
-        btnCrearP.setText("  Crear Perfil");
+        btnCrearP.setText("   Crear Perfil");
         btnCrearP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
         btnCrearP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -113,9 +114,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(255, 255, 0));
-        btnIngresar.setText("      Ingresar");
+        btnIngresar.setText("    Ingresar");
         btnIngresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
         btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -136,13 +137,15 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtusuario, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtContrasena, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(datosLayout.createSequentialGroup()
-                        .addComponent(btnCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtusuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                    .addComponent(txtContrasena, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(datosLayout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addComponent(btnCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         datosLayout.setVerticalGroup(
             datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,6 +257,7 @@ public class Login extends javax.swing.JFrame {
         cp.setVisible(true);
         cp.setLocationRelativeTo(null);
         this.dispose();
+        ControladorPerfil conP = new ControladorPerfil(cp);
     }//GEN-LAST:event_btnCrearPMouseClicked
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
