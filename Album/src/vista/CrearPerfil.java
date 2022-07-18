@@ -28,9 +28,6 @@ public class CrearPerfil extends javax.swing.JFrame {
         lblApellidos = new javax.swing.JLabel();
         lblNombreU = new javax.swing.JLabel();
         lblContrasena = new javax.swing.JLabel();
-        btnCancelar = new javax.swing.JLabel();
-        btnSalir = new javax.swing.JLabel();
-        btnCrearPerfil = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtApellidos = new javax.swing.JTextField();
         spEdad = new javax.swing.JSpinner();
@@ -38,6 +35,9 @@ public class CrearPerfil extends javax.swing.JFrame {
         txtContrasena = new javax.swing.JPasswordField();
         head = new javax.swing.JPanel();
         titulo = new java.awt.Label();
+        btnCancelar = new javax.swing.JButton();
+        btnCrearPerfil = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -66,26 +66,6 @@ public class CrearPerfil extends javax.swing.JFrame {
         lblContrasena.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblContrasena.setForeground(new java.awt.Color(255, 255, 0));
         lblContrasena.setText("Contraseña:");
-
-        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(255, 255, 0));
-        btnCancelar.setText("  CANCELAR");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 0));
-        btnSalir.setText("    SALIR");
-        btnSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirMouseClicked(evt);
-            }
-        });
-
-        btnCrearPerfil.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCrearPerfil.setForeground(new java.awt.Color(255, 255, 0));
-        btnCrearPerfil.setText("  CREAR PERFIL");
-        btnCrearPerfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
 
         txtNombre.setBackground(new java.awt.Color(0, 0, 0));
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -142,20 +122,40 @@ public class CrearPerfil extends javax.swing.JFrame {
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
+        btnCancelar.setBackground(new java.awt.Color(0, 0, 0));
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 0));
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.setBorder(null);
+
+        btnCrearPerfil.setBackground(new java.awt.Color(0, 0, 0));
+        btnCrearPerfil.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCrearPerfil.setForeground(new java.awt.Color(255, 255, 0));
+        btnCrearPerfil.setText("CREAR PERFIL");
+        btnCrearPerfil.setBorder(null);
+
+        btnSalir.setBackground(new java.awt.Color(0, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 0));
+        btnSalir.setText("SALIR");
+        btnSalir.setBorder(null);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
-                .addComponent(btnCrearPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
-            .addGroup(fondoLayout.createSequentialGroup()
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(283, 283, 283)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fondoLayout.createSequentialGroup()
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(fondoLayout.createSequentialGroup()
@@ -168,12 +168,14 @@ public class CrearPerfil extends javax.swing.JFrame {
                             .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                                .addComponent(txtNombreU)
-                                .addComponent(txtNombre)
-                                .addComponent(txtApellidos, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(spEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(spEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnCrearPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                                    .addComponent(txtNombreU)
+                                    .addComponent(txtNombre)
+                                    .addComponent(txtApellidos, javax.swing.GroupLayout.Alignment.LEADING)))))
                     .addComponent(head, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -204,12 +206,12 @@ public class CrearPerfil extends javax.swing.JFrame {
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContrasena)
                     .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCrearPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52))
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCrearPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53))
         );
 
         bg.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 380));
@@ -241,12 +243,12 @@ public class CrearPerfil extends javax.swing.JFrame {
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headMouseDragged
 
-    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         Login log = new Login();
         log.setVisible(true);
         log.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_btnSalirMouseClicked
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     
     /**
@@ -289,9 +291,9 @@ public class CrearPerfil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    public javax.swing.JLabel btnCancelar;
-    public javax.swing.JLabel btnCrearPerfil;
-    public javax.swing.JLabel btnSalir;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnCrearPerfil;
+    public javax.swing.JButton btnSalir;
     private javax.swing.JPanel fondo;
     private javax.swing.JPanel head;
     private javax.swing.JLabel lblApellidos;

@@ -25,11 +25,19 @@ public class ControladorPerfil implements ActionListener {
     
      public ControladorPerfil(CrearPerfil vista) {
         this.vistaPerfil = vista;
+        this.vistaPerfil.btnCancelar.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
+        if (e.getSource() == vistaPerfil.btnCancelar) {
+            vistaPerfil.txtNombre.setText(null);
+            vistaPerfil.txtApellidos.setText(null);
+            vistaPerfil.spEdad.setValue(0);
+            vistaPerfil.txtNombreU.setText(null);
+            vistaPerfil.txtContrasena.setText(null);
+        }
     }
      
      
