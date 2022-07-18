@@ -1,20 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
-/**
- *
- * @author !Core¡
- */
-public class CrearPerfil extends javax.swing.JFrame {
+import java.awt.Color;
 
-    /**
-     * Creates new form CrearPerfil
-     */
+
+public class CrearPerfil extends javax.swing.JFrame {
+    
+    int xMouse, yMouse;
+    
     public CrearPerfil() {
         initComponents();
+        
     }
 
     /**
@@ -26,54 +21,234 @@ public class CrearPerfil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bg = new javax.swing.JPanel();
         fondo = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
+        lblNombre = new javax.swing.JLabel();
+        lblEdad = new javax.swing.JLabel();
+        lblApellidos = new javax.swing.JLabel();
+        lblNombreU = new javax.swing.JLabel();
+        lblContrasena = new javax.swing.JLabel();
+        btnCancelar = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JLabel();
+        btnCrearPerfil = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
+        spEdad = new javax.swing.JSpinner();
+        txtNombreU = new javax.swing.JTextField();
+        txtContrasena = new javax.swing.JPasswordField();
+        head = new javax.swing.JPanel();
+        titulo = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
-        fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        fondo.setBackground(new java.awt.Color(0, 0, 0));
 
-        label1.setBackground(new java.awt.Color(0, 0, 0));
-        label1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        label1.setForeground(new java.awt.Color(255, 255, 0));
-        label1.setText("CREAR PERFIL");
+        lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 0));
+        lblNombre.setText("Nombre: ");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(189, Short.MAX_VALUE))
+        lblEdad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblEdad.setForeground(new java.awt.Color(255, 255, 0));
+        lblEdad.setText("Edad: ");
+
+        lblApellidos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblApellidos.setForeground(new java.awt.Color(255, 255, 0));
+        lblApellidos.setText("Apellidos: ");
+
+        lblNombreU.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNombreU.setForeground(new java.awt.Color(255, 255, 0));
+        lblNombreU.setText("Nombre de usuario:");
+
+        lblContrasena.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblContrasena.setForeground(new java.awt.Color(255, 255, 0));
+        lblContrasena.setText("Contraseña:");
+
+        btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 0));
+        btnCancelar.setText("  CANCELAR");
+        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 0));
+        btnSalir.setText("    SALIR");
+        btnSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+        });
+
+        btnCrearPerfil.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCrearPerfil.setForeground(new java.awt.Color(255, 255, 0));
+        btnCrearPerfil.setText("  CREAR PERFIL");
+        btnCrearPerfil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+
+        txtNombre.setBackground(new java.awt.Color(0, 0, 0));
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(255, 255, 0));
+        txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+
+        txtApellidos.setBackground(new java.awt.Color(0, 0, 0));
+        txtApellidos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtApellidos.setForeground(new java.awt.Color(255, 255, 0));
+        txtApellidos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+
+        spEdad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
+
+        txtNombreU.setBackground(new java.awt.Color(0, 0, 0));
+        txtNombreU.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNombreU.setForeground(new java.awt.Color(255, 255, 0));
+        txtNombreU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+
+        txtContrasena.setBackground(new java.awt.Color(0, 0, 0));
+        txtContrasena.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtContrasena.setForeground(new java.awt.Color(255, 255, 0));
+        txtContrasena.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+
+        head.setBackground(new java.awt.Color(0, 0, 0));
+        head.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                headMouseDragged(evt);
+            }
+        });
+        head.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                headMousePressed(evt);
+            }
+        });
+
+        titulo.setBackground(new java.awt.Color(0, 0, 0));
+        titulo.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 0));
+        titulo.setText("CREAR PERFIL");
+
+        javax.swing.GroupLayout headLayout = new javax.swing.GroupLayout(head);
+        head.setLayout(headLayout);
+        headLayout.setHorizontalGroup(
+            headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headLayout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(249, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(375, Short.MAX_VALUE))
+        headLayout.setVerticalGroup(
+            headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headLayout.createSequentialGroup()
+                .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        fondo.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 410));
+        javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
+        fondo.setLayout(fondoLayout);
+        fondoLayout.setHorizontalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104)
+                .addComponent(btnCrearPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fondoLayout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEdad)
+                                    .addComponent(lblNombreU)
+                                    .addComponent(lblContrasena)))
+                            .addComponent(lblApellidos, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                                .addComponent(txtNombreU)
+                                .addComponent(txtNombre)
+                                .addComponent(txtApellidos, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(spEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(head, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fondoLayout.setVerticalGroup(
+            fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoLayout.createSequentialGroup()
+                .addComponent(head, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(lblApellidos))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEdad)
+                    .addComponent(spEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreU)
+                    .addComponent(txtNombreU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblContrasena)
+                    .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCrearPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52))
+        );
+
+        bg.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 380));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 638, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void headMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_headMousePressed
+
+    private void headMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_headMouseDragged
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        Login log = new Login();
+        log.setVisible(true);
+        log.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    
     /**
      * @param args the command line arguments
      */
@@ -113,8 +288,22 @@ public class CrearPerfil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bg;
+    public javax.swing.JLabel btnCancelar;
+    public javax.swing.JLabel btnCrearPerfil;
+    public javax.swing.JLabel btnSalir;
     private javax.swing.JPanel fondo;
-    private javax.swing.JPanel jPanel1;
-    private java.awt.Label label1;
+    private javax.swing.JPanel head;
+    private javax.swing.JLabel lblApellidos;
+    private javax.swing.JLabel lblContrasena;
+    private javax.swing.JLabel lblEdad;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombreU;
+    public javax.swing.JSpinner spEdad;
+    private java.awt.Label titulo;
+    public javax.swing.JTextField txtApellidos;
+    public javax.swing.JPasswordField txtContrasena;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtNombreU;
     // End of variables declaration//GEN-END:variables
 }

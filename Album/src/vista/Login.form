@@ -123,9 +123,9 @@
                           <Component id="txtusuario" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtContrasena" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="lblCrearP" min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="btnCrearP" min="-2" pref="84" max="-2" attributes="0"/>
                               <EmptySpace pref="32" max="32767" attributes="0"/>
-                              <Component id="lblIngresar" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="btnIngresar" min="-2" pref="81" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="41" max="32767" attributes="0"/>
@@ -151,8 +151,8 @@
                       <Component id="jSeparator2" min="-2" pref="15" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblCrearP" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="lblIngresar" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="btnCrearP" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="btnIngresar" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="46" max="32767" attributes="0"/>
                   </Group>
@@ -235,7 +235,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblCrearP">
+            <Component class="javax.swing.JLabel" name="btnCrearP">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
@@ -253,13 +253,13 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblCrearPMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCrearPMouseClicked"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblIngresar">
+            <Component class="javax.swing.JLabel" name="btnIngresar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
@@ -277,7 +277,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblIngresarMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnIngresarMouseClicked"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

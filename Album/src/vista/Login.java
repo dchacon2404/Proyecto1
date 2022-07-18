@@ -29,8 +29,8 @@ public class Login extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         txtContrasena = new javax.swing.JPasswordField();
-        lblCrearP = new javax.swing.JLabel();
-        lblIngresar = new javax.swing.JLabel();
+        btnCrearP = new javax.swing.JLabel();
+        btnIngresar = new javax.swing.JLabel();
         btnSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,23 +103,23 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        lblCrearP.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCrearP.setForeground(new java.awt.Color(255, 255, 0));
-        lblCrearP.setText("  Crear Perfil");
-        lblCrearP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        lblCrearP.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCrearP.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCrearP.setForeground(new java.awt.Color(255, 255, 0));
+        btnCrearP.setText("  Crear Perfil");
+        btnCrearP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        btnCrearP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCrearPMouseClicked(evt);
+                btnCrearPMouseClicked(evt);
             }
         });
 
-        lblIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblIngresar.setForeground(new java.awt.Color(255, 255, 0));
-        lblIngresar.setText("      Ingresar");
-        lblIngresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        lblIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnIngresar.setForeground(new java.awt.Color(255, 255, 0));
+        btnIngresar.setText("      Ingresar");
+        btnIngresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblIngresarMouseClicked(evt);
+                btnIngresarMouseClicked(evt);
             }
         });
 
@@ -139,9 +139,9 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(txtusuario, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtContrasena, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(datosLayout.createSequentialGroup()
-                        .addComponent(lblCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                        .addComponent(lblIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         datosLayout.setVerticalGroup(
@@ -161,8 +161,8 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -249,16 +249,16 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtContrasenaMousePressed
 
-    private void lblCrearPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearPMouseClicked
+    private void btnCrearPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearPMouseClicked
         CrearPerfil cp = new CrearPerfil();
         cp.setVisible(true);
         cp.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_lblCrearPMouseClicked
+    }//GEN-LAST:event_btnCrearPMouseClicked
 
-    private void lblIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIngresarMouseClicked
+    private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
         
-    }//GEN-LAST:event_lblIngresarMouseClicked
+    }//GEN-LAST:event_btnIngresarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -300,14 +300,14 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    public javax.swing.JLabel btnCrearP;
+    public javax.swing.JLabel btnIngresar;
     public javax.swing.JLabel btnSalir;
     private javax.swing.JPanel datos;
     private javax.swing.JPanel head;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblContrasena;
-    public javax.swing.JLabel lblCrearP;
-    public javax.swing.JLabel lblIngresar;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel logo;
     public javax.swing.JPasswordField txtContrasena;
