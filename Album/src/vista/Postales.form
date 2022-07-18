@@ -23,13 +23,75 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Component id="lblTitulo" alignment="0" pref="416" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="lblPostal1" min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="lblPostal2" min="-2" pref="77" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="btnAbrirSobre" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="lblPostal3" min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblPostal1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPostal2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPostal3" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <Component id="btnAbrirSobre" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblTitulo">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="OBTENER POSTALES"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAbrirSobre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ABRIR SOBRE"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPostal1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="POSTAL 1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPostal2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="POSTAL 2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPostal3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="POSTAL 3"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>
