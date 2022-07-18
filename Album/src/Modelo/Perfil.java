@@ -1,6 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Modelo;
 
-public class Usuario {
+/**
+ *
+ * @author Jahir
+ */
+public class Perfil {
+
     private int idUsuario;
     private String nombre;
     private String apellidos;
@@ -8,7 +18,10 @@ public class Usuario {
     private String nombreUsuario;
     private String contrasena;
 
-    public Usuario(int idUsuario, String nombre, String apellidos, int edad, String nombreUsuario, String contrasena) {
+    public Perfil() {
+    }
+
+    public Perfil(int idUsuario, String nombre, String apellidos, int edad, String nombreUsuario, String contrasena) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -64,5 +77,5 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    
+
 }
