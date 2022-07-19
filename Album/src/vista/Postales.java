@@ -133,7 +133,7 @@ public class Postales extends javax.swing.JFrame {
         btnGuardar.setForeground(new java.awt.Color(255, 255, 0));
         btnGuardar.setText("GUARDAR");
         btnGuardar.setBorder(null);
-        bg.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 480, 110, 30));
+        bg.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, 110, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
