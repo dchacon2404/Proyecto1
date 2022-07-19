@@ -24,13 +24,13 @@ public class PerfilDAO {
     ResultSet rs;
     Conexion conexion = new Conexion();
 
-    public int agregarMascota(Perfil perfil) {
+    public int agregarPerfil(Perfil perfil) {
 
         int r = 0;
-        String sql = "INSERT INTO USUARIOS (Nombre, Apellidos, Edad, NombreUsuario, Contrasena) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO perfil (Nombre, Apellidos, Edad, NombreUsuario, Contrasena) VALUES (?,?,?,?,?)";
 
         try {
-           //con = conexion.getConnection();
+            con = conexion.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, perfil.getNombre());
             ps.setString(2, perfil.getApellidos());
@@ -38,9 +38,35 @@ public class PerfilDAO {
             ps.setString(4, perfil.getNombreUsuario());
             ps.setString(5, perfil.getContrasena());
             r = ps.executeUpdate();
+            
         } catch (SQLException e) {
+            System.out.println("error agregar perfil"+e.getMessage());
         }
         return r;
     }
-
+    
+    public boolean Login(Perfil perfil) {
+        
+        String sql = "SELECT idPerfil, NombreUsuario, Contrasena FROM perfil WHERE NombreUsuario=?";
+        
+        try {
+            con = conexion.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, perfil.getNombreUsuario());
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                if (perfil.getContrasena().equals(rs.getString("Contrasena"))) {
+                    perfil.setIdUsuario(rs.getInt("idPerfil"));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+            
+        } catch (SQLException e) {
+            return false;
+        }
+    }
 }

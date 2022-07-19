@@ -133,6 +133,11 @@ public class CrearPerfil extends javax.swing.JFrame {
         btnCrearPerfil.setForeground(new java.awt.Color(255, 255, 0));
         btnCrearPerfil.setText("CREAR PERFIL");
         btnCrearPerfil.setBorder(null);
+        btnCrearPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearPerfilActionPerformed(evt);
+            }
+        });
 
         btnSalir.setBackground(new java.awt.Color(0, 0, 0));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -249,6 +254,10 @@ public class CrearPerfil extends javax.swing.JFrame {
         log.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnCrearPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPerfilActionPerformed
+        
+    }//GEN-LAST:event_btnCrearPerfilActionPerformed
 
     
     /**
