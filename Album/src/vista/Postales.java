@@ -1,20 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
-/**
- *
- * @author Andres
- */
+import java.awt.Color;
+
 public class Postales extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Postales
-     */
+    int xMouse, yMouse;
+    
     public Postales() {
         initComponents();
+        lblIdUsuario.setText(Principal.lblId.getText());
     }
 
     /**
@@ -26,60 +20,153 @@ public class Postales extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bg = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         btnAbrirSobre = new javax.swing.JButton();
         lblPostal1 = new javax.swing.JLabel();
         lblPostal2 = new javax.swing.JLabel();
         lblPostal3 = new javax.swing.JLabel();
+        head = new javax.swing.JPanel();
+        btnSalir = new javax.swing.JLabel();
+        lblIdUsuario = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
-        lblTitulo.setBackground(new java.awt.Color(255, 255, 51));
+        bg.setBackground(new java.awt.Color(0, 0, 0));
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 51));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("OBTENER POSTALES");
+        bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 40));
 
+        btnAbrirSobre.setBackground(new java.awt.Color(0, 0, 0));
+        btnAbrirSobre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAbrirSobre.setForeground(new java.awt.Color(255, 255, 0));
         btnAbrirSobre.setText("ABRIR SOBRE");
+        btnAbrirSobre.setBorder(null);
+        bg.add(btnAbrirSobre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 120, 30));
 
-        lblPostal1.setText("POSTAL 1");
+        lblPostal1.setBackground(new java.awt.Color(0, 0, 0));
+        lblPostal1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPostal1.setForeground(new java.awt.Color(255, 255, 0));
+        lblPostal1.setText("            POSTAL 1");
+        lblPostal1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        bg.add(lblPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 170, 170));
 
-        lblPostal2.setText("POSTAL 2");
+        lblPostal2.setBackground(new java.awt.Color(255, 255, 51));
+        lblPostal2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPostal2.setForeground(new java.awt.Color(255, 255, 0));
+        lblPostal2.setText("             POSTAL 2");
+        lblPostal2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        bg.add(lblPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 72, 170, 170));
 
-        lblPostal3.setText("POSTAL 3");
+        lblPostal3.setBackground(new java.awt.Color(0, 0, 0));
+        lblPostal3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPostal3.setForeground(new java.awt.Color(255, 255, 0));
+        lblPostal3.setText("           POSTAL 3");
+        lblPostal3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        bg.add(lblPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(417, 72, 160, 170));
+
+        head.setBackground(new java.awt.Color(0, 0, 0));
+        head.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                headMouseDragged(evt);
+            }
+        });
+        head.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                headMousePressed(evt);
+            }
+        });
+
+        btnSalir.setBackground(new java.awt.Color(0, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 0, 0));
+        btnSalir.setText("   X");
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout headLayout = new javax.swing.GroupLayout(head);
+        head.setLayout(headLayout);
+        headLayout.setHorizontalGroup(
+            headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headLayout.createSequentialGroup()
+                .addGap(0, 566, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        headLayout.setVerticalGroup(
+            headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 30));
+
+        lblIdUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblIdUsuario.setForeground(new java.awt.Color(255, 255, 0));
+        lblIdUsuario.setText(".");
+        bg.add(lblIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 40, -1));
+
+        lblId.setBackground(new java.awt.Color(0, 0, 0));
+        lblId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblId.setForeground(new java.awt.Color(255, 255, 0));
+        lblId.setText("Mi id:");
+        bg.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblPostal1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(lblPostal2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnAbrirSobre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblPostal3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62))
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lblTitulo)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPostal1)
-                    .addComponent(lblPostal2)
-                    .addComponent(lblPostal3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(btnAbrirSobre)
-                .addContainerGap())
+            .addComponent(bg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void headMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_headMouseDragged
+
+    private void headMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_headMousePressed
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        this.dispose();
+        Principal p = new Principal(Integer.parseInt(lblIdUsuario.getText()));
+        p.setVisible(true);
+        p.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        btnSalir.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setForeground(Color.red);
+    }//GEN-LAST:event_btnSalirMouseExited
 
     /**
      * @param args the command line arguments
@@ -117,10 +204,15 @@ public class Postales extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bg;
     public javax.swing.JButton btnAbrirSobre;
-    private javax.swing.JLabel lblPostal1;
-    private javax.swing.JLabel lblPostal2;
-    private javax.swing.JLabel lblPostal3;
+    private javax.swing.JLabel btnSalir;
+    private javax.swing.JPanel head;
+    private javax.swing.JLabel lblId;
+    public static javax.swing.JLabel lblIdUsuario;
+    public javax.swing.JLabel lblPostal1;
+    public javax.swing.JLabel lblPostal2;
+    public javax.swing.JLabel lblPostal3;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }
