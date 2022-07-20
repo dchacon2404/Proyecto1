@@ -12,15 +12,15 @@ public class ControladorPostales implements ActionListener{
     
     public ControladorPostales(Postales post){
         this.post = post;
-        this.post.btnAbrirSobre.addActionListener(this);
+        this.post.btnAbrirPostal2.addActionListener(this);
         this.post.btnGuardar.addActionListener(this);
     }
-
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if(e.getSource() == post.btnAbrirSobre) {
-            dao.TraerPostales();
+        if(e.getSource() == post.btnGuardar) {
         }
     }
     

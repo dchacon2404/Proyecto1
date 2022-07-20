@@ -195,7 +195,6 @@ public class Principal extends javax.swing.JFrame {
         Postales pos = new Postales();
         pos.setVisible(true);
         pos.setLocationRelativeTo(null);
-        ControladorPostales cp = new ControladorPostales(pos);
     }//GEN-LAST:event_btnSobresActionPerformed
 
     private void btnAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlbumActionPerformed
