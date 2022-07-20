@@ -1,38 +1,27 @@
 package Modelo;
 
-public class Postales {
-    
-    private int idPerfil;
+public class Personajes {
     private int idPersonaje;
     private byte[] imagen;
 
-    public Postales() {
-    }
-    
-    public Postales(int idPerfil, int idPersonaje, byte[] imagen) {
-        this.idPerfil = idPerfil;
-        this.idPersonaje = idPersonaje;
-        this.imagen = imagen;
+    public Personajes() {
     }
 
-    public int getIdPerfil() {
-        return idPerfil;
+    public Personajes(int idPersonaje, byte[] imagen) {
+        this.idPersonaje = idPersonaje;
+        this.imagen = imagen;
     }
 
     public int getIdPersonaje() {
         return idPersonaje;
     }
 
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setIdPerfil(int idPerfil) {
-        this.idPerfil = idPerfil;
-    }
-
     public void setIdPersonaje(int idPersonaje) {
         this.idPersonaje = idPersonaje;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
     }
 
     public void setImagen(byte[] imagen) {
