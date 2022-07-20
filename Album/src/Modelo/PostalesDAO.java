@@ -1,15 +1,12 @@
 package Modelo;
 
 import DB.Conexion;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.awt.Color;
 import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import vista.Postales;
 
@@ -22,22 +19,32 @@ public class PostalesDAO {
     
     public void TraerPostales() {
         
-        String sql = "select idPersonaje, imagen from personajes order by rand() limit 3";
-        Postales sobre = new Postales();
+        Postales pos = new Postales();
         Personajes per = new Personajes();
+        String sql = "select idPersonaje from personajes order by rand() limit 1";
+        ImageIcon image;
+        InputStream is;
+        int id;
         
         try {
+            
             cnn = conexion.getConnection();
             ps = cnn.prepareStatement(sql);
             rs = ps.executeQuery();
-            while(rs.next()) {
-                per.setIdPersonaje(rs.getInt(1));
-                per.setImagen(rs.getBytes(2));
+            
+            while (rs.next()) {
+                id = rs.getInt(1);
+                pos.lblIdPostal1.setText(Integer.toString(id));
+                System.out.println(id);
             }
             
         } catch (SQLException e) {
-            System.out.println("Error 2: "+e.getMessage());
+            System.out.println("Error 1: "+e.getMessage());
         }
- 
+        
+    }
+    
+    public int agregarP1() {
+        return 0;
     }
 }

@@ -1,11 +1,17 @@
 package vista;
 
+import DB.Conexion;
+import Modelo.PostalesDAO;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Postales extends javax.swing.JFrame {
 
     int xMouse, yMouse;
-    
+
     public Postales() {
         initComponents();
         lblIdUsuario.setText(Principal.lblId.getText());
@@ -22,7 +28,9 @@ public class Postales extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
-        btnAbrirSobre = new javax.swing.JButton();
+        btnAbrirPostal1 = new javax.swing.JButton();
+        btnAbrirPostal2 = new javax.swing.JButton();
+        btnAbrirPostal3 = new javax.swing.JButton();
         lblPostal3 = new javax.swing.JLabel();
         lblPostal2 = new javax.swing.JLabel();
         lblPostal1 = new javax.swing.JLabel();
@@ -49,12 +57,41 @@ public class Postales extends javax.swing.JFrame {
         lblTitulo.setText("OBTENER POSTALES");
         bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, 40));
 
-        btnAbrirSobre.setBackground(new java.awt.Color(0, 0, 0));
-        btnAbrirSobre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAbrirSobre.setForeground(new java.awt.Color(255, 255, 0));
-        btnAbrirSobre.setText("ABRIR SOBRE");
-        btnAbrirSobre.setBorder(null);
-        bg.add(btnAbrirSobre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 120, 30));
+        btnAbrirPostal1.setBackground(new java.awt.Color(0, 0, 0));
+        btnAbrirPostal1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAbrirPostal1.setForeground(new java.awt.Color(255, 255, 0));
+        btnAbrirPostal1.setText("ABRIR POSTAL");
+        btnAbrirPostal1.setBorder(null);
+        btnAbrirPostal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrirPostal1ActionPerformed(evt);
+            }
+        });
+        bg.add(btnAbrirPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 120, 30));
+
+        btnAbrirPostal2.setBackground(new java.awt.Color(0, 0, 0));
+        btnAbrirPostal2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAbrirPostal2.setForeground(new java.awt.Color(255, 255, 0));
+        btnAbrirPostal2.setText("ABRIR POSTAL");
+        btnAbrirPostal2.setBorder(null);
+        btnAbrirPostal2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrirPostal2ActionPerformed(evt);
+            }
+        });
+        bg.add(btnAbrirPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, 120, 30));
+
+        btnAbrirPostal3.setBackground(new java.awt.Color(0, 0, 0));
+        btnAbrirPostal3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAbrirPostal3.setForeground(new java.awt.Color(255, 255, 0));
+        btnAbrirPostal3.setText("ABRIR POSTAL");
+        btnAbrirPostal3.setBorder(null);
+        btnAbrirPostal3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrirPostal3ActionPerformed(evt);
+            }
+        });
+        bg.add(btnAbrirPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 450, 120, 30));
 
         lblPostal3.setBackground(new java.awt.Color(0, 0, 0));
         lblPostal3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -73,7 +110,7 @@ public class Postales extends javax.swing.JFrame {
         lblPostal1.setBackground(new java.awt.Color(0, 0, 0));
         lblPostal1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPostal1.setForeground(new java.awt.Color(255, 255, 0));
-        lblPostal1.setText("                   POSTAL 1");
+        lblPostal1.setText("                      POSTAL 1                 ");
         lblPostal1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
         bg.add(lblPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 230, 370));
 
@@ -136,22 +173,25 @@ public class Postales extends javax.swing.JFrame {
         btnGuardar.setForeground(new java.awt.Color(255, 255, 0));
         btnGuardar.setText("GUARDAR");
         btnGuardar.setBorder(null);
-        bg.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, 110, 30));
+        bg.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 110, 30));
 
         lblIdPostal1.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdPostal1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPostal1.setForeground(new java.awt.Color(255, 255, 0));
         lblIdPostal1.setText(".");
-        bg.add(lblIdPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 30, -1));
+        bg.add(lblIdPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 30, 30));
 
         lblIdPostal2.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdPostal2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPostal2.setForeground(new java.awt.Color(255, 255, 0));
         lblIdPostal2.setText(".");
-        bg.add(lblIdPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 20, -1));
+        bg.add(lblIdPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 30, 30));
 
         lblIdPostal3.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdPostal3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPostal3.setForeground(new java.awt.Color(255, 255, 0));
         lblIdPostal3.setText(".");
-        bg.add(lblIdPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, 30, -1));
+        bg.add(lblIdPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, 30, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -195,6 +235,40 @@ public class Postales extends javax.swing.JFrame {
         btnSalir.setForeground(Color.red);
     }//GEN-LAST:event_btnSalirMouseExited
 
+    private void btnAbrirPostal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal2ActionPerformed
+
+        PreparedStatement ps;
+        ResultSet rs;
+        Connection cnn;
+        Conexion conexion = new Conexion();
+
+        String sql = "select idPersonaje from personajes order by rand() limit 1";
+        int id;
+
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                id = rs.getInt(1);
+                //per.setImagen(rs.getBytes(2));
+                lblIdPostal1.setText(Integer.toString(id));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error 1.1: "+e.getMessage());
+        }
+
+    }//GEN-LAST:event_btnAbrirPostal2ActionPerformed
+
+    private void btnAbrirPostal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal1ActionPerformed
+       
+    }//GEN-LAST:event_btnAbrirPostal1ActionPerformed
+
+    private void btnAbrirPostal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal3ActionPerformed
+        
+    }//GEN-LAST:event_btnAbrirPostal3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -232,7 +306,9 @@ public class Postales extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    public javax.swing.JButton btnAbrirSobre;
+    public javax.swing.JButton btnAbrirPostal1;
+    public javax.swing.JButton btnAbrirPostal2;
+    public javax.swing.JButton btnAbrirPostal3;
     public javax.swing.JButton btnGuardar;
     private javax.swing.JLabel btnSalir;
     private javax.swing.JPanel head;
