@@ -31,6 +31,9 @@ public class Postales extends javax.swing.JFrame {
         lblId = new javax.swing.JLabel();
         btnSalir = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
+        lblIdPostal1 = new javax.swing.JLabel();
+        lblIdPostal2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -135,6 +138,21 @@ public class Postales extends javax.swing.JFrame {
         btnGuardar.setBorder(null);
         bg.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, 110, 30));
 
+        lblIdPostal1.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdPostal1.setForeground(new java.awt.Color(255, 255, 0));
+        lblIdPostal1.setText(".");
+        bg.add(lblIdPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 30, -1));
+
+        lblIdPostal2.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdPostal2.setForeground(new java.awt.Color(255, 255, 0));
+        lblIdPostal2.setText(".");
+        bg.add(lblIdPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 20, -1));
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel1.setText(".");
+        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, 30, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -218,7 +236,10 @@ public class Postales extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel btnSalir;
     private javax.swing.JPanel head;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblIdPostal1;
+    private javax.swing.JLabel lblIdPostal2;
     public static javax.swing.JLabel lblIdUsuario;
     public javax.swing.JLabel lblPostal1;
     public javax.swing.JLabel lblPostal2;
