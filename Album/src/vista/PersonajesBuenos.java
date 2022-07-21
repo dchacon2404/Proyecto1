@@ -46,7 +46,7 @@ public class PersonajesBuenos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 284, Short.MAX_VALUE))
+                .addGap(0, 343, Short.MAX_VALUE))
         );
 
         pack();

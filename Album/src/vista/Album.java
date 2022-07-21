@@ -82,6 +82,11 @@ public class Album extends javax.swing.JFrame {
         btnBuenos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnBuenos.setForeground(new java.awt.Color(255, 255, 0));
         btnBuenos.setText("VER LAS POSTALES DE PERSONAJES BUENOS");
+        btnBuenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuenosActionPerformed(evt);
+            }
+        });
 
         btnVillanos.setBackground(new java.awt.Color(0, 0, 0));
         btnVillanos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -197,6 +202,14 @@ public class Album extends javax.swing.JFrame {
         p.setVisible(true);
         p.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnBuenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuenosActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        PersonajesBuenos pb = new PersonajesBuenos();
+        pb.setVisible(true);
+        pb.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnBuenosActionPerformed
 
     /**
      * @param args the command line arguments
