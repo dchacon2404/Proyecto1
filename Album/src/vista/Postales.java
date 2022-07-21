@@ -1,12 +1,22 @@
 package vista;
 
 import DB.Conexion;
-import Modelo.PostalesDAO;
+import Modelo.Personajes;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
 
 public class Postales extends javax.swing.JFrame {
 
@@ -241,8 +251,11 @@ public class Postales extends javax.swing.JFrame {
         ResultSet rs;
         Connection cnn;
         Conexion conexion = new Conexion();
+        Personajes per = new Personajes();
 
-        String sql = "select idPersonaje from personajes order by rand() limit 1";
+        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
+        //ImageIcon image;
+        //InputStream is;
         int id;
 
         try {
@@ -251,22 +264,71 @@ public class Postales extends javax.swing.JFrame {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                id = rs.getInt(1);
-                //per.setImagen(rs.getBytes(2));
-                lblIdPostal1.setText(Integer.toString(id));
+                per.setIdPersonaje(rs.getInt(1));
+                per.setImagen(rs.getBytes(2));
+                id = per.getIdPersonaje();
+                
+                lblIdPostal2.setText(Integer.toString(id));
             }
+            
         } catch (SQLException e) {
-            System.out.println("Error 1.1: "+e.getMessage());
+            System.out.println("Error : "+e.getMessage());
         }
 
     }//GEN-LAST:event_btnAbrirPostal2ActionPerformed
 
     private void btnAbrirPostal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal1ActionPerformed
-       
+        Personajes per = new Personajes();
+        PreparedStatement ps;
+        ResultSet rs;
+        Connection cnn;
+        Conexion conexion = new Conexion();
+
+        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
+        int id;
+
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                per.setIdPersonaje(rs.getInt(1));
+                per.setImagen(rs.getBytes(2));
+                id = per.getIdPersonaje();
+                        
+                lblIdPostal1.setText(Integer.toString(id));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error : "+e.getMessage());
+        }
     }//GEN-LAST:event_btnAbrirPostal1ActionPerformed
 
     private void btnAbrirPostal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal3ActionPerformed
-        
+        Personajes per = new Personajes();
+        PreparedStatement ps;
+        ResultSet rs;
+        Connection cnn;
+        Conexion conexion = new Conexion();
+
+        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
+        int id;
+
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                per.setIdPersonaje(rs.getInt(1));
+                per.setImagen(rs.getBytes(2));
+                id = per.getIdPersonaje();
+                
+                lblIdPostal3.setText(Integer.toString(id));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error : "+e.getMessage());
+        }
     }//GEN-LAST:event_btnAbrirPostal3ActionPerformed
 
     /**
