@@ -92,16 +92,31 @@ public class Album extends javax.swing.JFrame {
         btnVillanos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnVillanos.setForeground(new java.awt.Color(255, 255, 0));
         btnVillanos.setText("VER LAS POSTALES DE PERSONAJES VILLANOS");
+        btnVillanos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVillanosActionPerformed(evt);
+            }
+        });
 
         btnTodas.setBackground(new java.awt.Color(0, 0, 0));
         btnTodas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnTodas.setForeground(new java.awt.Color(255, 255, 0));
         btnTodas.setText("VER TODAS LAS POSTALES");
+        btnTodas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTodasActionPerformed(evt);
+            }
+        });
 
         btnRepetidas.setBackground(new java.awt.Color(0, 0, 0));
         btnRepetidas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRepetidas.setForeground(new java.awt.Color(255, 255, 0));
         btnRepetidas.setText("VER POSTALES REPETIDAS");
+        btnRepetidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRepetidasActionPerformed(evt);
+            }
+        });
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -203,12 +218,28 @@ public class Album extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnBuenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuenosActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
         PersonajesBuenos pb = new PersonajesBuenos();
         pb.setVisible(true);
         pb.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnBuenosActionPerformed
+
+    private void btnTodasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodasActionPerformed
+        TodosLosPersonajes todos  = new TodosLosPersonajes();
+        todos.setVisible(true);
+        todos.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnTodasActionPerformed
+
+    private void btnVillanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVillanosActionPerformed
+        PersonajesMalos pm = new PersonajesMalos();
+        pm.setVisible(true);
+        pm.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnVillanosActionPerformed
+
+    private void btnRepetidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRepetidasActionPerformed
+        Repetidas r = new Repetidas();
+        r.setVisible(true);
+        r.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnRepetidasActionPerformed
 
     /**
      * @param args the command line arguments

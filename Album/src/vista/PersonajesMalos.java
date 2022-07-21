@@ -2,11 +2,11 @@ package vista;
 
 import java.awt.Color;
 
-public class PersonajesBuenos extends javax.swing.JFrame {
+public class PersonajesMalos extends javax.swing.JFrame {
 
     int xMouse, yMouse;
     
-    public PersonajesBuenos() {
+    public PersonajesMalos() {
         initComponents();
     }
 
@@ -27,7 +27,6 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 0, 0));
         setUndecorated(true);
         setResizable(false);
 
@@ -50,19 +49,19 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         head.setLayout(headLayout);
         headLayout.setHorizontalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
         );
         headLayout.setVerticalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 30));
+        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 30));
 
         btnSalir.setBackground(new java.awt.Color(0, 0, 0));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 0, 0));
-        btnSalir.setText("    X");
+        btnSalir.setText("   X");
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSalirMouseClicked(evt);
@@ -74,27 +73,27 @@ public class PersonajesBuenos extends javax.swing.JFrame {
                 btnSalirMouseExited(evt);
             }
         });
-        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, 30));
+        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, 30));
 
         lblPersonaje.setBackground(new java.awt.Color(0, 0, 0));
         lblPersonaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPersonaje.setForeground(new java.awt.Color(255, 255, 0));
-        lblPersonaje.setText("                  PERSONAJE");
+        lblPersonaje.setText("                   PERSONAJE");
         lblPersonaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 230, 370));
+        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 230, 370));
 
         btnSiguiente.setBackground(new java.awt.Color(0, 0, 0));
         btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.setBorder(null);
-        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 110, 30));
+        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 130, 30));
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 0));
-        lblTitulo.setText("MIS PERSONAJES BUENOS");
-        bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
+        lblTitulo.setText("MIS PERSONAJES MALOS");
+        bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,7 +104,7 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -152,20 +151,20 @@ public class PersonajesBuenos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonajesBuenos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonajesMalos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonajesBuenos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonajesMalos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonajesBuenos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonajesMalos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonajesBuenos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonajesMalos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonajesBuenos().setVisible(true);
+                new PersonajesMalos().setVisible(true);
             }
         });
     }

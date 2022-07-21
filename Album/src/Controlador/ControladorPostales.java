@@ -3,7 +3,6 @@ package Controlador;
 import Modelo.PostalesDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import vista.Postales;
 
 public class ControladorPostales implements ActionListener{
@@ -24,14 +23,8 @@ public class ControladorPostales implements ActionListener{
         }
     }
     
-    public void agregarP1(File ruta) {
-        int idPerfil = Integer.parseInt(post.lblIdUsuario.getText());
-        int idPersonaje = Integer.parseInt(post.lblIdPostal1.getText());
+    public void agregarP1() {
         
-        try {
-            byte[] imagen = new byte[(int) ruta.length()];
-        } catch (Exception e) {
-        }
     }
     
     public void agregarP2() {

@@ -2,11 +2,11 @@ package vista;
 
 import java.awt.Color;
 
-public class PersonajesBuenos extends javax.swing.JFrame {
-
+public class TodosLosPersonajes extends javax.swing.JFrame {
+    
     int xMouse, yMouse;
     
-    public PersonajesBuenos() {
+    public TodosLosPersonajes() {
         initComponents();
     }
 
@@ -20,19 +20,40 @@ public class PersonajesBuenos extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        head = new javax.swing.JPanel();
-        btnSalir = new javax.swing.JLabel();
         lblPersonaje = new javax.swing.JLabel();
         btnSiguiente = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
+        head = new javax.swing.JPanel();
+        btnSalir = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 0, 0));
         setUndecorated(true);
         setResizable(false);
 
         bg.setBackground(new java.awt.Color(0, 0, 0));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblPersonaje.setBackground(new java.awt.Color(0, 0, 0));
+        lblPersonaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPersonaje.setForeground(new java.awt.Color(255, 255, 0));
+        lblPersonaje.setText("                   PERSONAJE");
+        lblPersonaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 230, 370));
+
+        btnSiguiente.setBackground(new java.awt.Color(0, 0, 0));
+        btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
+        btnSiguiente.setText("SIGUIENTE");
+        btnSiguiente.setBorder(null);
+        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 120, 40));
+
+        btnVolver.setBackground(new java.awt.Color(0, 0, 0));
+        btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(255, 255, 0));
+        btnVolver.setText("VOLVER");
+        btnVolver.setBorder(null);
+        bg.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 130, 40));
 
         head.setBackground(new java.awt.Color(0, 0, 0));
         head.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -50,19 +71,19 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         head.setLayout(headLayout);
         headLayout.setHorizontalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
         headLayout.setVerticalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 30));
+        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 30));
 
         btnSalir.setBackground(new java.awt.Color(0, 0, 0));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 0, 0));
-        btnSalir.setText("    X");
+        btnSalir.setText("   X");
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSalirMouseClicked(evt);
@@ -74,54 +95,31 @@ public class PersonajesBuenos extends javax.swing.JFrame {
                 btnSalirMouseExited(evt);
             }
         });
-        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, 30));
-
-        lblPersonaje.setBackground(new java.awt.Color(0, 0, 0));
-        lblPersonaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblPersonaje.setForeground(new java.awt.Color(255, 255, 0));
-        lblPersonaje.setText("                  PERSONAJE");
-        lblPersonaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 230, 370));
-
-        btnSiguiente.setBackground(new java.awt.Color(0, 0, 0));
-        btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
-        btnSiguiente.setText("SIGUIENTE");
-        btnSiguiente.setBorder(null);
-        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 110, 30));
+        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 40, 30));
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 0));
-        lblTitulo.setText("MIS PERSONAJES BUENOS");
-        bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
+        lblTitulo.setText("TODOS LOS PERSONAJES");
+        bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void headMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headMousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
-    }//GEN-LAST:event_headMousePressed
-
-    private void headMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x - xMouse, y - yMouse);
-    }//GEN-LAST:event_headMouseDragged
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         this.dispose();
@@ -134,6 +132,17 @@ public class PersonajesBuenos extends javax.swing.JFrame {
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
         btnSalir.setForeground(Color.red);
     }//GEN-LAST:event_btnSalirMouseExited
+
+    private void headMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_headMousePressed
+
+    private void headMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_headMouseDragged
 
     /**
      * @param args the command line arguments
@@ -152,20 +161,20 @@ public class PersonajesBuenos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonajesBuenos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TodosLosPersonajes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonajesBuenos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TodosLosPersonajes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonajesBuenos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TodosLosPersonajes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonajesBuenos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TodosLosPersonajes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonajesBuenos().setVisible(true);
+                new TodosLosPersonajes().setVisible(true);
             }
         });
     }
@@ -174,6 +183,7 @@ public class PersonajesBuenos extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     public javax.swing.JLabel btnSalir;
     public javax.swing.JButton btnSiguiente;
+    public javax.swing.JButton btnVolver;
     public javax.swing.JPanel head;
     public javax.swing.JLabel lblPersonaje;
     private javax.swing.JLabel lblTitulo;
