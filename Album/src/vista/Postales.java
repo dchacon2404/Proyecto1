@@ -7,16 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.ImageIcon;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
 
 public class Postales extends javax.swing.JFrame {
 
@@ -266,13 +256,14 @@ public class Postales extends javax.swing.JFrame {
             while (rs.next()) {
                 per.setIdPersonaje(rs.getInt(1));
                 per.setImagen(rs.getBytes(2));
+
                 id = per.getIdPersonaje();
-                
+
                 lblIdPostal2.setText(Integer.toString(id));
             }
-            
+
         } catch (SQLException e) {
-            System.out.println("Error : "+e.getMessage());
+            System.out.println("Error : " + e.getMessage());
         }
 
     }//GEN-LAST:event_btnAbrirPostal2ActionPerformed
@@ -296,11 +287,11 @@ public class Postales extends javax.swing.JFrame {
                 per.setIdPersonaje(rs.getInt(1));
                 per.setImagen(rs.getBytes(2));
                 id = per.getIdPersonaje();
-                        
+
                 lblIdPostal1.setText(Integer.toString(id));
             }
         } catch (SQLException e) {
-            System.out.println("Error : "+e.getMessage());
+            System.out.println("Error : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAbrirPostal1ActionPerformed
 
@@ -323,11 +314,11 @@ public class Postales extends javax.swing.JFrame {
                 per.setIdPersonaje(rs.getInt(1));
                 per.setImagen(rs.getBytes(2));
                 id = per.getIdPersonaje();
-                
+
                 lblIdPostal3.setText(Integer.toString(id));
             }
         } catch (SQLException e) {
-            System.out.println("Error : "+e.getMessage());
+            System.out.println("Error : " + e.getMessage());
         }
     }//GEN-LAST:event_btnAbrirPostal3ActionPerformed
 
