@@ -1,15 +1,10 @@
 package Modelo;
 
 import DB.Conexion;
-import java.awt.Color;
-import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.ImageIcon;
-import vista.Postales;
-
 public class PostalesDAO {
     
     PreparedStatement ps;
@@ -17,34 +12,57 @@ public class PostalesDAO {
     Connection cnn;
     Conexion conexion = new Conexion();
     
-    public void TraerPostales() {
-        
-        Postales pos = new Postales();
-        Personajes per = new Personajes();
-        String sql = "select idPersonaje from personajes order by rand() limit 1";
-        ImageIcon image;
-        InputStream is;
-        int id;
+    public int agregarP1(Perfil perfil, Personajes personaje) {
+        int r = 0;
+        String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
         
         try {
-            
             cnn = conexion.getConnection();
             ps = cnn.prepareStatement(sql);
-            rs = ps.executeQuery();
-            
-            while (rs.next()) {
-                id = rs.getInt(1);
-                pos.lblIdPostal1.setText(Integer.toString(id));
-                System.out.println(id);
-            }
+            ps.setInt(1, perfil.getIdUsuario());
+            ps.setInt(2, personaje.getIdPersonaje());
+            ps.setBytes(3, personaje.getImagen());
+            r = ps.executeUpdate();
             
         } catch (SQLException e) {
-            System.out.println("Error 1: "+e.getMessage());
+            System.out.println("Error: "+e.getMessage());
         }
-        
+        return r;
     }
     
-    public int agregarP1() {
-        return 0;
+    public int agregarP2(Perfil perfil, Personajes personaje) {
+        int r = 0;
+        String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
+        
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            ps.setInt(1, perfil.getIdUsuario());
+            ps.setInt(2, personaje.getIdPersonaje());
+            ps.setBytes(3, personaje.getImagen());
+            r = ps.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.out.println("Error: "+e.getMessage());
+        }
+        return r;
+    }
+    
+    public int agregarP3(Perfil perfil, Personajes personaje) {
+        int r = 0;
+        String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
+        
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            ps.setInt(1, perfil.getIdUsuario());
+            ps.setInt(2, personaje.getIdPersonaje());
+            ps.setBytes(3, personaje.getImagen());
+            r = ps.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.out.println("Error: "+e.getMessage());
+        }
+        return r;
     }
 }
