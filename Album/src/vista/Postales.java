@@ -311,8 +311,8 @@ public class Postales extends javax.swing.JFrame {
 //            System.out.println("Error : " + e.getMessage());
 //        }
 
-        PostalesDAO dao = new PostalesDAO();
-        dao.traerPostal();
+//        PostalesDAO dao = new PostalesDAO();
+//        dao.traerPostal();
     }//GEN-LAST:event_btnAbrirPostal1ActionPerformed
 
     private void btnAbrirPostal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal3ActionPerformed
