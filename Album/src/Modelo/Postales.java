@@ -4,12 +4,12 @@ public class Postales {
     
     private int idPerfil;
     private int idPersonaje;
-    private byte[] imagen;
+    private String imagen;
 
     public Postales() {
     }
     
-    public Postales(int idPerfil, int idPersonaje, byte[] imagen) {
+    public Postales(int idPerfil, int idPersonaje, String imagen) {
         this.idPerfil = idPerfil;
         this.idPersonaje = idPersonaje;
         this.imagen = imagen;
@@ -23,7 +23,7 @@ public class Postales {
         return idPersonaje;
     }
 
-    public byte[] getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
@@ -35,7 +35,7 @@ public class Postales {
         this.idPersonaje = idPersonaje;
     }
 
-    public void setImagen(byte[] imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
     
