@@ -27,7 +27,7 @@ public class PerfilDAO {
     public int agregarPerfil(Perfil perfil) {
 
         int r = 0;
-        String sql = "INSERT INTO perfil (Nombre, Apellidos, Edad, NombreUsuario, Contrasena) VALUES (?,?,?,?,?)";
+        String sql = "Call pa_AgregarPerfil(?,?,?,?,?)";
 
         try {
             con = conexion.getConnection();
