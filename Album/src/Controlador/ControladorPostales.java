@@ -27,12 +27,17 @@ public class ControladorPostales implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == post.btnAbrirPostal1) {
+            traer(post.lblPostal1, post.lblIdPostal1);
         }
 
         if (e.getSource() == post.btnGuardar) {
         }
     }
-
+    
+    public void traer(JLabel label1, JLabel label2) {
+        dao.traerPostal(label1, label2);
+    }
+    
     public void agregarP1() {
 
     }
