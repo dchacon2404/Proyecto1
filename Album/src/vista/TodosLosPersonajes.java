@@ -37,23 +37,23 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         lblPersonaje.setBackground(new java.awt.Color(0, 0, 0));
         lblPersonaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPersonaje.setForeground(new java.awt.Color(255, 255, 0));
-        lblPersonaje.setText("                   PERSONAJE");
+        lblPersonaje.setText("                         PERSONAJE");
         lblPersonaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 230, 370));
+        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 290, 395));
 
         btnSiguiente.setBackground(new java.awt.Color(0, 0, 0));
         btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.setBorder(null);
-        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 120, 40));
+        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 120, 40));
 
         btnVolver.setBackground(new java.awt.Color(0, 0, 0));
         btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 0));
         btnVolver.setText("VOLVER");
         btnVolver.setBorder(null);
-        bg.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 130, 40));
+        bg.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 130, 40));
 
         head.setBackground(new java.awt.Color(0, 0, 0));
         head.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -114,7 +114,7 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

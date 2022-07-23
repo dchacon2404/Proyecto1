@@ -79,29 +79,29 @@ public class Repetidas extends javax.swing.JFrame {
         lblPersonaje.setBackground(new java.awt.Color(0, 0, 0));
         lblPersonaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPersonaje.setForeground(new java.awt.Color(255, 255, 0));
-        lblPersonaje.setText("                  PERSONAJE");
+        lblPersonaje.setText("                           PERSONAJE");
         lblPersonaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 230, 370));
+        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 290, 395));
 
         btnVolver.setBackground(new java.awt.Color(0, 0, 0));
         btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 0));
         btnVolver.setText("VOLVER");
         btnVolver.setBorder(null);
-        bg.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 90, 30));
+        bg.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 90, 30));
 
         btnSiguiente.setBackground(new java.awt.Color(0, 0, 0));
         btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.setBorder(null);
-        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, 110, 30));
+        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 110, 30));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("REPETIDAS");
-        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
+        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,7 +112,7 @@ public class Repetidas extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
