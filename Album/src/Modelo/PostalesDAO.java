@@ -5,6 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import vista.Postales;
+
 public class PostalesDAO {
     
     PreparedStatement ps;
@@ -13,6 +17,8 @@ public class PostalesDAO {
     Conexion conexion = new Conexion();
     
     public void traerPostal() {
+        
+        Postales label1 = new Postales();
         Personajes per = new Personajes();
         String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
 
@@ -24,7 +30,13 @@ public class PostalesDAO {
             while (rs.next()) {
                 per.setIdPersonaje(rs.getInt(1));
                 per.setImagen(rs.getString(2));
-
+                
+                ImageIcon ima = new ImageIcon(per.getImagen());
+                Icon icono = new ImageIcon(ima.getImage().getScaledInstance(label1.lblPostal1.getWidth(), label1.lblPostal1.getHeight(), 
+                        java.awt.Image.SCALE_SMOOTH));
+                
+                label1.lblIdPostal1.setText(Integer.toString(per.getIdPersonaje()));
+                label1.lblPostal1.setIcon(icono);
             }
 
         } catch (SQLException e) {

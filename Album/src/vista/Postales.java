@@ -2,6 +2,7 @@ package vista;
 
 import DB.Conexion;
 import Modelo.Personajes;
+import Modelo.PostalesDAO;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -285,30 +286,33 @@ public class Postales extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAbrirPostal2ActionPerformed
 
     private void btnAbrirPostal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal1ActionPerformed
-        Personajes per = new Personajes();
-        PreparedStatement ps;
-        ResultSet rs;
-        Connection cnn;
-        Conexion conexion = new Conexion();
+//        Personajes per = new Personajes();
+//        PreparedStatement ps;
+//        ResultSet rs;
+//        Connection cnn;
+//        Conexion conexion = new Conexion();
+//
+//        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
+//        int id;
+//
+//        try {
+//            cnn = conexion.getConnection();
+//            ps = cnn.prepareStatement(sql);
+//            rs = ps.executeQuery();
+//
+//            while (rs.next()) {
+//                per.setIdPersonaje(rs.getInt(1));
+//                per.setImagen(rs.getString(2));
+//                id = per.getIdPersonaje();
+//
+//                lblIdPostal1.setText(Integer.toString(id));
+//            }
+//        } catch (SQLException e) {
+//            System.out.println("Error : " + e.getMessage());
+//        }
 
-        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
-        int id;
-
-        try {
-            cnn = conexion.getConnection();
-            ps = cnn.prepareStatement(sql);
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                per.setIdPersonaje(rs.getInt(1));
-                per.setImagen(rs.getString(2));
-                id = per.getIdPersonaje();
-
-                lblIdPostal1.setText(Integer.toString(id));
-            }
-        } catch (SQLException e) {
-            System.out.println("Error : " + e.getMessage());
-        }
+        PostalesDAO dao = new PostalesDAO();
+        dao.traerPostal();
     }//GEN-LAST:event_btnAbrirPostal1ActionPerformed
 
     private void btnAbrirPostal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal3ActionPerformed

@@ -1,7 +1,7 @@
 package vista;
 
-import Controlador.ControladorPostales;
 import java.awt.Color;
+
 
 public class Principal extends javax.swing.JFrame {
 
