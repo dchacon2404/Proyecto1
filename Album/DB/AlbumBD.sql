@@ -31,8 +31,9 @@ CREATE TABLE `perfil` (
   `Edad` int DEFAULT NULL,
   `NombreUsuario` varchar(45) DEFAULT NULL,
   `Contrasena` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idPerfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`idPerfil`),
+  UNIQUE KEY `NombreUsuario_UNIQUE` (`NombreUsuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +42,7 @@ CREATE TABLE `perfil` (
 
 LOCK TABLES `perfil` WRITE;
 /*!40000 ALTER TABLE `perfil` DISABLE KEYS */;
-INSERT INTO `perfil` VALUES (1,'Andrés','Fuentes Corella',19,'andrescr','0000'),(2,'Juan','Soto Castro',21,'soto1','1111'),(3,'Sofía','Pastor Jiménez',19,'sofia01','2222'),(4,'Jimena','Alemán Santana',20,'aleman2','3333'),(5,'Pablo','Ramos Espinoza',22,'ramos09','4444');
+INSERT INTO `perfil` VALUES (1,'Andres','Fuentes Corella',19,'andrescr','0000');
 /*!40000 ALTER TABLE `perfil` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +55,7 @@ DROP TABLE IF EXISTS `personajes`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personajes` (
   `idPersonaje` int NOT NULL,
-  `imagen` longblob,
+  `imagen` varchar(70) DEFAULT NULL,
   `bueno` tinyint DEFAULT NULL,
   PRIMARY KEY (`idPersonaje`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -66,7 +67,7 @@ CREATE TABLE `personajes` (
 
 LOCK TABLES `personajes` WRITE;
 /*!40000 ALTER TABLE `personajes` DISABLE KEYS */;
-INSERT INTO `personajes` VALUES (1,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosAnakinSky',1),(2,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosC3PO',1),(3,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosChewbacca',1),(4,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosHanSolo',1),(5,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosLukeNiño',1),(6,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosObiWanK',1),(7,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosPrincesaLeia',1),(8,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosquin-gon',1),(9,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosR2-D2',1),(10,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosYoda',1),(11,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosBattleDroid',0),(12,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosCapitanPhasma',0),(13,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosCapitanRex',0),(14,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosComandanteBacara',0),(15,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosDroideka',0),(16,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosKylo',0),(17,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosSandTrooper',0),(18,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosScoutTrooper',0),(19,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosSnowTrooper',0),(20,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosStormTrooper',0);
+INSERT INTO `personajes` VALUES (1,'src/Images/AnakinSky',1),(2,'src/Images/C3PO',1),(3,'src/Images/Chewbacca',1),(4,'src/Images/HanSolo',1),(5,'src/Images/LukeNiño',1),(6,'src/Images/ObiWanK',1),(7,'src/Images/PrincesaLeia',1),(8,'src/Images/quin-gon',1),(9,'src/Images/R2-D2',1),(10,'src/Images/Yoda',1),(11,'src/Images/BattleDroid',0),(12,'src/Images/CapitanPhasma',0),(13,'src/Images/CapitanRex',0),(14,'src/Images/ComandanteBacara',0),(15,'src/Images/Droideka',0),(16,'src/Images/Kylo',0),(17,'src/Images/SandTrooper',0),(18,'src/Images/ScoutTrooper',0),(19,'src/Images/SnowTrooper',0),(20,'src/Images/Stormtrooper',0);
 /*!40000 ALTER TABLE `personajes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,13 +82,13 @@ CREATE TABLE `postales` (
   `idPostal` int NOT NULL AUTO_INCREMENT,
   `idPerfil` int DEFAULT NULL,
   `idPersonaje` int DEFAULT NULL,
-  `imagen` longblob,
+  `imagen` varchar(70) DEFAULT NULL,
   PRIMARY KEY (`idPostal`),
   KEY `idPerfil_idx` (`idPerfil`),
   KEY `idPersonaje_idx` (`idPersonaje`),
   CONSTRAINT `idPerfil` FOREIGN KEY (`idPerfil`) REFERENCES `perfil` (`idPerfil`),
   CONSTRAINT `idPersonaje` FOREIGN KEY (`idPersonaje`) REFERENCES `personajes` (`idPersonaje`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +97,6 @@ CREATE TABLE `postales` (
 
 LOCK TABLES `postales` WRITE;
 /*!40000 ALTER TABLE `postales` DISABLE KEYS */;
-INSERT INTO `postales` VALUES (1,1,12,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosCapitanPhasma'),(2,1,15,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosDroideka'),(3,1,17,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosSandTrooper'),(4,1,11,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosBattleDroid'),(5,1,18,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosScoutTrooper'),(6,1,2,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosC3PO'),(7,1,9,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosR2-D2'),(8,1,8,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosquin-gon'),(14,2,8,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosquin-gon'),(15,2,7,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosPrincesaLeia'),(16,2,2,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosC3PO'),(17,2,2,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosC3PO'),(18,2,5,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosLukeNiño'),(19,2,6,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosObiWanK'),(20,2,6,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosObiWanK'),(21,1,15,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosDroideka'),(22,1,17,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosSandTrooper'),(23,3,9,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosR2-D2'),(24,3,2,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosC3PO'),(25,3,5,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosLukeNiño'),(26,3,6,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosObiWanK'),(27,3,5,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosLukeNiño'),(28,3,7,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosPrincesaLeia'),(29,3,10,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosYoda'),(30,3,13,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosCapitanRex'),(31,3,15,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosDroideka'),(32,3,18,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosScoutTrooper'),(33,3,15,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosDroideka'),(34,4,15,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosDroideka'),(35,4,19,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosSnowTrooper'),(36,4,12,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosCapitanPhasma'),(37,4,11,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosBattleDroid'),(38,4,19,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosSnowTrooper'),(39,4,14,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosComandanteBacara'),(40,4,17,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosSandTrooper'),(41,4,10,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosYoda'),(42,4,1,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosAnakinSky'),(43,4,3,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosChewbacca'),(44,5,3,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosChewbacca'),(45,5,8,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosquin-gon'),(46,5,5,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosLukeNiño'),(47,5,4,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosHanSolo'),(48,5,3,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosChewbacca'),(49,5,6,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosObiWanK'),(50,5,6,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESBuenosObiWanK'),(51,5,11,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosBattleDroid'),(52,5,13,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosCapitanRex'),(53,5,16,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosKylo'),(54,5,16,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosKylo'),(55,5,15,_binary 'C:UsersAndresOneDriveEscritorioGITHUBProyecto1AlbumSOBRESMalosDroideka');
 /*!40000 ALTER TABLE `postales` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -109,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-20 22:14:35
+-- Dump completed on 2022-07-23  9:49:21
