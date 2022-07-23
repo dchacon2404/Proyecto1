@@ -78,22 +78,22 @@ public class PersonajesMalos extends javax.swing.JFrame {
         lblPersonaje.setBackground(new java.awt.Color(0, 0, 0));
         lblPersonaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPersonaje.setForeground(new java.awt.Color(255, 255, 0));
-        lblPersonaje.setText("                   PERSONAJE");
+        lblPersonaje.setText("                          PERSONAJE");
         lblPersonaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 230, 370));
+        bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 290, 395));
 
         btnSiguiente.setBackground(new java.awt.Color(0, 0, 0));
         btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.setBorder(null);
-        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 130, 30));
+        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, 130, 30));
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 0));
         lblTitulo.setText("MIS PERSONAJES MALOS");
-        bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+        bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +104,7 @@ public class PersonajesMalos extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

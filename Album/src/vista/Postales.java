@@ -42,6 +42,9 @@ public class Postales extends javax.swing.JFrame {
         lblIdPostal1 = new javax.swing.JLabel();
         lblIdPostal2 = new javax.swing.JLabel();
         lblIdPostal3 = new javax.swing.JLabel();
+        lblPath1 = new javax.swing.JLabel();
+        lblPath2 = new javax.swing.JLabel();
+        lblPath3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -67,7 +70,7 @@ public class Postales extends javax.swing.JFrame {
                 btnAbrirPostal1ActionPerformed(evt);
             }
         });
-        bg.add(btnAbrirPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 120, 30));
+        bg.add(btnAbrirPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 120, 30));
 
         btnAbrirPostal2.setBackground(new java.awt.Color(0, 0, 0));
         btnAbrirPostal2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -79,7 +82,7 @@ public class Postales extends javax.swing.JFrame {
                 btnAbrirPostal2ActionPerformed(evt);
             }
         });
-        bg.add(btnAbrirPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, 120, 30));
+        bg.add(btnAbrirPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, 120, 30));
 
         btnAbrirPostal3.setBackground(new java.awt.Color(0, 0, 0));
         btnAbrirPostal3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -91,28 +94,28 @@ public class Postales extends javax.swing.JFrame {
                 btnAbrirPostal3ActionPerformed(evt);
             }
         });
-        bg.add(btnAbrirPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 450, 120, 30));
+        bg.add(btnAbrirPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 480, 120, 30));
 
         lblPostal3.setBackground(new java.awt.Color(0, 0, 0));
         lblPostal3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPostal3.setForeground(new java.awt.Color(255, 255, 0));
-        lblPostal3.setText("                     POSTAL 3");
+        lblPostal3.setText("                             POSTAL 3");
         lblPostal3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        bg.add(lblPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, 230, 370));
+        bg.add(lblPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, 290, 395));
 
         lblPostal2.setBackground(new java.awt.Color(0, 0, 0));
         lblPostal2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPostal2.setForeground(new java.awt.Color(255, 255, 0));
-        lblPostal2.setText("                     POSTAL 2");
+        lblPostal2.setText("                            POSTAL 2");
         lblPostal2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        bg.add(lblPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 230, 370));
+        bg.add(lblPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 290, 395));
 
         lblPostal1.setBackground(new java.awt.Color(0, 0, 0));
         lblPostal1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPostal1.setForeground(new java.awt.Color(255, 255, 0));
-        lblPostal1.setText("                      POSTAL 1                 ");
+        lblPostal1.setText("                           POSTAL 1                 ");
         lblPostal1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
-        bg.add(lblPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 230, 370));
+        bg.add(lblPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 290, 395));
 
         head.setBackground(new java.awt.Color(0, 0, 0));
         head.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -173,36 +176,51 @@ public class Postales extends javax.swing.JFrame {
         btnGuardar.setForeground(new java.awt.Color(255, 255, 0));
         btnGuardar.setText("GUARDAR");
         btnGuardar.setBorder(null);
-        bg.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 110, 30));
+        bg.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 170, 30));
 
         lblIdPostal1.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPostal1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPostal1.setForeground(new java.awt.Color(255, 255, 0));
         lblIdPostal1.setText(".");
-        bg.add(lblIdPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 30, 30));
+        bg.add(lblIdPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 30, 30));
 
         lblIdPostal2.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPostal2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPostal2.setForeground(new java.awt.Color(255, 255, 0));
         lblIdPostal2.setText(".");
-        bg.add(lblIdPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, 30, 30));
+        bg.add(lblIdPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 30, 30));
 
         lblIdPostal3.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPostal3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPostal3.setForeground(new java.awt.Color(255, 255, 0));
         lblIdPostal3.setText(".");
-        bg.add(lblIdPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 450, 30, 30));
+        bg.add(lblIdPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 30, 30));
+
+        lblPath1.setBackground(new java.awt.Color(0, 0, 0));
+        lblPath1.setForeground(new java.awt.Color(51, 51, 51));
+        lblPath1.setText(".");
+        bg.add(lblPath1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 110, -1));
+
+        lblPath2.setBackground(new java.awt.Color(0, 0, 0));
+        lblPath2.setForeground(new java.awt.Color(51, 51, 51));
+        lblPath2.setText(".");
+        bg.add(lblPath2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 110, -1));
+
+        lblPath3.setBackground(new java.awt.Color(0, 0, 0));
+        lblPath3.setForeground(new java.awt.Color(51, 51, 51));
+        lblPath3.setText(".");
+        bg.add(lblPath3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 110, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 1025, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 1032, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -370,6 +388,9 @@ public class Postales extends javax.swing.JFrame {
     public javax.swing.JLabel lblIdPostal2;
     public javax.swing.JLabel lblIdPostal3;
     public static javax.swing.JLabel lblIdUsuario;
+    public javax.swing.JLabel lblPath1;
+    public javax.swing.JLabel lblPath2;
+    public javax.swing.JLabel lblPath3;
     public javax.swing.JLabel lblPostal1;
     public javax.swing.JLabel lblPostal2;
     public javax.swing.JLabel lblPostal3;
