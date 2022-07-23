@@ -40,7 +40,7 @@ public class PerfilDAO {
     
     public boolean Login(Perfil perfil) {
         
-        String sql = "SELECT idPerfil, NombreUsuario, Contrasena FROM perfil WHERE NombreUsuario=?";
+        String sql = "select idPerfil, NombreUsuario, Contrasena From perfil where NombreUsuario =?;";
         
         try {
             con = conexion.getConnection();
