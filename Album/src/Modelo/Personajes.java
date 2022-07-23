@@ -2,12 +2,12 @@ package Modelo;
 
 public class Personajes {
     private int idPersonaje;
-    private byte[] imagen;
+    private String imagen;
 
     public Personajes() {
     }
 
-    public Personajes(int idPersonaje, byte[] imagen) {
+    public Personajes(int idPersonaje, String imagen) {
         this.idPersonaje = idPersonaje;
         this.imagen = imagen;
     }
@@ -20,11 +20,11 @@ public class Personajes {
         this.idPersonaje = idPersonaje;
     }
 
-    public byte[] getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(byte[] imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
     

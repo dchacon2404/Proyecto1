@@ -262,8 +262,6 @@ public class Postales extends javax.swing.JFrame {
         Personajes per = new Personajes();
 
         String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
-        //ImageIcon image;
-        //InputStream is;
         int id;
 
         try {
@@ -273,7 +271,7 @@ public class Postales extends javax.swing.JFrame {
 
             while (rs.next()) {
                 per.setIdPersonaje(rs.getInt(1));
-                per.setImagen(rs.getBytes(2));
+                per.setImagen(rs.getString(2));
 
                 id = per.getIdPersonaje();
 
@@ -303,7 +301,7 @@ public class Postales extends javax.swing.JFrame {
 
             while (rs.next()) {
                 per.setIdPersonaje(rs.getInt(1));
-                per.setImagen(rs.getBytes(2));
+                per.setImagen(rs.getString(2));
                 id = per.getIdPersonaje();
 
                 lblIdPostal1.setText(Integer.toString(id));
@@ -330,7 +328,7 @@ public class Postales extends javax.swing.JFrame {
 
             while (rs.next()) {
                 per.setIdPersonaje(rs.getInt(1));
-                per.setImagen(rs.getBytes(2));
+                per.setImagen(rs.getString(2));
                 id = per.getIdPersonaje();
 
                 lblIdPostal3.setText(Integer.toString(id));

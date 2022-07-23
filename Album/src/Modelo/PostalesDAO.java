@@ -12,6 +12,26 @@ public class PostalesDAO {
     Connection cnn;
     Conexion conexion = new Conexion();
     
+    public void traerPostal() {
+        Personajes per = new Personajes();
+        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
+
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                per.setIdPersonaje(rs.getInt(1));
+                per.setImagen(rs.getString(2));
+
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error : " + e.getMessage());
+        }
+    }
+    
     public int agregarP1(Perfil perfil, Personajes personaje) {
         int r = 0;
         String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
@@ -21,7 +41,7 @@ public class PostalesDAO {
             ps = cnn.prepareStatement(sql);
             ps.setInt(1, perfil.getIdUsuario());
             ps.setInt(2, personaje.getIdPersonaje());
-            ps.setBytes(3, personaje.getImagen());
+            ps.setString(3, personaje.getImagen());
             r = ps.executeUpdate();
             
         } catch (SQLException e) {
@@ -39,7 +59,7 @@ public class PostalesDAO {
             ps = cnn.prepareStatement(sql);
             ps.setInt(1, perfil.getIdUsuario());
             ps.setInt(2, personaje.getIdPersonaje());
-            ps.setBytes(3, personaje.getImagen());
+            ps.setString(3, personaje.getImagen());
             r = ps.executeUpdate();
             
         } catch (SQLException e) {
@@ -57,7 +77,7 @@ public class PostalesDAO {
             ps = cnn.prepareStatement(sql);
             ps.setInt(1, perfil.getIdUsuario());
             ps.setInt(2, personaje.getIdPersonaje());
-            ps.setBytes(3, personaje.getImagen());
+            ps.setString(3, personaje.getImagen());
             r = ps.executeUpdate();
             
         } catch (SQLException e) {
