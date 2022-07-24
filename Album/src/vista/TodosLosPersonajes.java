@@ -1,6 +1,11 @@
 package vista;
 
+import Modelo.ClasePostales;
+import Modelo.DoublyLinkedList;
+import Modelo.PostalesDAO;
 import java.awt.Color;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 public class TodosLosPersonajes extends javax.swing.JFrame {
     
@@ -8,6 +13,7 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
     
     public TodosLosPersonajes() {
         initComponents();
+        lblIdPerfil.setText(Album.lblIdUsuario.getText());
     }
 
     /**
@@ -26,6 +32,9 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         head = new javax.swing.JPanel();
         btnSalir = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
+        lblMiId = new javax.swing.JLabel();
+        lblIdPerfil = new javax.swing.JLabel();
+        lblPath = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -46,6 +55,11 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.setBorder(null);
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteActionPerformed(evt);
+            }
+        });
         bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 120, 40));
 
         btnVolver.setBackground(new java.awt.Color(0, 0, 0));
@@ -103,6 +117,23 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         lblTitulo.setText("TODOS LOS PERSONAJES");
         bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
 
+        lblMiId.setBackground(new java.awt.Color(0, 0, 0));
+        lblMiId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblMiId.setForeground(new java.awt.Color(255, 255, 0));
+        lblMiId.setText("Mi id:");
+        bg.add(lblMiId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        lblIdPerfil.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblIdPerfil.setForeground(new java.awt.Color(255, 255, 0));
+        lblIdPerfil.setText(".");
+        bg.add(lblIdPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 30, -1));
+
+        lblPath.setBackground(new java.awt.Color(0, 0, 0));
+        lblPath.setForeground(new java.awt.Color(51, 51, 51));
+        lblPath.setText(".");
+        bg.add(lblPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 140, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,6 +174,21 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headMouseDragged
+
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+//        PostalesDAO dao = new PostalesDAO();
+//        ClasePostales postales = new ClasePostales();
+//        DoublyLinkedList lista = new DoublyLinkedList();
+//        
+//        postales.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
+//        dao.ListaTodos(postales);
+
+        ClasePostales postales = new ClasePostales();
+        DoublyLinkedList lista = new DoublyLinkedList();
+        
+        postales.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
+        lista.insert(postales, lblPersonaje);
+    }//GEN-LAST:event_btnSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +231,9 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
     public javax.swing.JButton btnSiguiente;
     public javax.swing.JButton btnVolver;
     public javax.swing.JPanel head;
+    public javax.swing.JLabel lblIdPerfil;
+    public javax.swing.JLabel lblMiId;
+    public javax.swing.JLabel lblPath;
     public javax.swing.JLabel lblPersonaje;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables

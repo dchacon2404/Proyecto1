@@ -8,6 +8,7 @@ public class PersonajesBuenos extends javax.swing.JFrame {
     
     public PersonajesBuenos() {
         initComponents();
+        lblIdPerfil.setText(Album.lblIdUsuario.getText());
     }
 
     /**
@@ -25,6 +26,8 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         lblPersonaje = new javax.swing.JLabel();
         btnSiguiente = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
+        lblMiId = new javax.swing.JLabel();
+        lblIdPerfil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -95,6 +98,18 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         lblTitulo.setForeground(new java.awt.Color(255, 255, 0));
         lblTitulo.setText("MIS PERSONAJES BUENOS");
         bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+
+        lblMiId.setBackground(new java.awt.Color(0, 0, 0));
+        lblMiId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblMiId.setForeground(new java.awt.Color(255, 255, 0));
+        lblMiId.setText("Mi id: ");
+        bg.add(lblMiId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        lblIdPerfil.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblIdPerfil.setForeground(new java.awt.Color(255, 255, 0));
+        lblIdPerfil.setText(".");
+        bg.add(lblIdPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 30, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,6 +190,8 @@ public class PersonajesBuenos extends javax.swing.JFrame {
     public javax.swing.JLabel btnSalir;
     public javax.swing.JButton btnSiguiente;
     public javax.swing.JPanel head;
+    public javax.swing.JLabel lblIdPerfil;
+    public javax.swing.JLabel lblMiId;
     public javax.swing.JLabel lblPersonaje;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
