@@ -4,8 +4,6 @@ import Modelo.Personajes;
 import Modelo.PostalesDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import vista.Postales;
 
@@ -25,17 +23,25 @@ public class ControladorPostales implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        
         if (e.getSource() == post.btnAbrirPostal1) {
-            traer(post.lblPostal1, post.lblIdPostal1);
+            traerPostal(post.lblIdPostal1, post.lblPostal1, post.lblPath1);
         }
-
+        
+        if (e.getSource() == post.btnAbrirPostal2) {
+            traerPostal(post.lblIdPostal2, post.lblPostal2, post.lblPath2);
+        }
+        
+        if (e.getSource() == post.btnAbrirPostal3) {
+            traerPostal(post.lblIdPostal3, post.lblPostal3, post.lblPath3);
+        }
+        
         if (e.getSource() == post.btnGuardar) {
         }
     }
     
-    public void traer(JLabel label1, JLabel label2) {
-        dao.traerPostal(label1, label2);
+    public void traerPostal(JLabel label1, JLabel label2, JLabel label3) {
+        dao.traerPostal1(label1, label2, label3);
     }
     
     public void agregarP1() {

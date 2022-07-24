@@ -1,13 +1,7 @@
 package vista;
 
-import DB.Conexion;
-import Modelo.Personajes;
-import Modelo.PostalesDAO;
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 
 public class Postales extends javax.swing.JFrame {
 
@@ -59,7 +53,7 @@ public class Postales extends javax.swing.JFrame {
         lblTitulo.setForeground(new java.awt.Color(255, 255, 51));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("OBTENER POSTALES");
-        bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, 40));
+        bg.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 40));
 
         btnAbrirPostal1.setBackground(new java.awt.Color(0, 0, 0));
         btnAbrirPostal1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -177,7 +171,7 @@ public class Postales extends javax.swing.JFrame {
         btnGuardar.setForeground(new java.awt.Color(255, 255, 0));
         btnGuardar.setText("GUARDAR");
         btnGuardar.setBorder(null);
-        bg.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 170, 30));
+        bg.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 570, 170, 40));
 
         lblIdPostal1.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPostal1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -200,17 +194,17 @@ public class Postales extends javax.swing.JFrame {
         lblPath1.setBackground(new java.awt.Color(0, 0, 0));
         lblPath1.setForeground(new java.awt.Color(51, 51, 51));
         lblPath1.setText(".");
-        bg.add(lblPath1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 110, -1));
+        bg.add(lblPath1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 200, -1));
 
         lblPath2.setBackground(new java.awt.Color(0, 0, 0));
         lblPath2.setForeground(new java.awt.Color(51, 51, 51));
         lblPath2.setText(".");
-        bg.add(lblPath2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 110, -1));
+        bg.add(lblPath2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 220, -1));
 
         lblPath3.setBackground(new java.awt.Color(0, 0, 0));
         lblPath3.setForeground(new java.awt.Color(51, 51, 51));
         lblPath3.setText(".");
-        bg.add(lblPath3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 110, -1));
+        bg.add(lblPath3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 260, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,7 +215,7 @@ public class Postales extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -255,91 +249,15 @@ public class Postales extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseExited
 
     private void btnAbrirPostal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal2ActionPerformed
-
-        PreparedStatement ps;
-        ResultSet rs;
-        Connection cnn;
-        Conexion conexion = new Conexion();
-        Personajes per = new Personajes();
-
-        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
-        int id;
-
-        try {
-            cnn = conexion.getConnection();
-            ps = cnn.prepareStatement(sql);
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                per.setIdPersonaje(rs.getInt(1));
-                per.setImagen(rs.getString(2));
-
-                id = per.getIdPersonaje();
-
-                lblIdPostal2.setText(Integer.toString(id));
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error : " + e.getMessage());
-        }
-
+        
     }//GEN-LAST:event_btnAbrirPostal2ActionPerformed
 
     private void btnAbrirPostal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal1ActionPerformed
-//        Personajes per = new Personajes();
-//        PreparedStatement ps;
-//        ResultSet rs;
-//        Connection cnn;
-//        Conexion conexion = new Conexion();
-//
-//        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
-//        int id;
-//
-//        try {
-//            cnn = conexion.getConnection();
-//            ps = cnn.prepareStatement(sql);
-//            rs = ps.executeQuery();
-//
-//            while (rs.next()) {
-//                per.setIdPersonaje(rs.getInt(1));
-//                per.setImagen(rs.getString(2));
-//                id = per.getIdPersonaje();
-//
-//                lblIdPostal1.setText(Integer.toString(id));
-//            }
-//        } catch (SQLException e) {
-//            System.out.println("Error : " + e.getMessage());
-//        }
-
-//        PostalesDAO dao = new PostalesDAO();
-//        dao.traerPostal();
+        
     }//GEN-LAST:event_btnAbrirPostal1ActionPerformed
 
     private void btnAbrirPostal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal3ActionPerformed
-        Personajes per = new Personajes();
-        PreparedStatement ps;
-        ResultSet rs;
-        Connection cnn;
-        Conexion conexion = new Conexion();
-
-        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
-        int id;
-
-        try {
-            cnn = conexion.getConnection();
-            ps = cnn.prepareStatement(sql);
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                per.setIdPersonaje(rs.getInt(1));
-                per.setImagen(rs.getString(2));
-                id = per.getIdPersonaje();
-
-                lblIdPostal3.setText(Integer.toString(id));
-            }
-        } catch (SQLException e) {
-            System.out.println("Error : " + e.getMessage());
-        }
+        
     }//GEN-LAST:event_btnAbrirPostal3ActionPerformed
 
     /**
