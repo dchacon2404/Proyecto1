@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import vista.Postales;
 
 public class PostalesDAO {
     
@@ -16,12 +15,10 @@ public class PostalesDAO {
     ResultSet rs;
     Connection cnn;
     Conexion conexion = new Conexion();
+    Personajes per = new Personajes();
     
-    public void traerPostal(JLabel label1, JLabel label2) {
-        
-        //Postales label1 = new Postales();
-        Personajes per = new Personajes();
-        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1";
+    public void traerPostal1(JLabel label1, JLabel label2, JLabel label3) {
+        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1;";
 
         try {
             cnn = conexion.getConnection();
@@ -30,14 +27,15 @@ public class PostalesDAO {
 
             while (rs.next()) {
                 per.setIdPersonaje(rs.getInt(1));
-                per.setImagen(rs.getString(2));
+                per.setImagen(rs.getString(2)+".png");
                 
                 ImageIcon ima = new ImageIcon(per.getImagen());
-                Icon icono = new ImageIcon(ima.getImage().getScaledInstance(label1.getWidth(), label1.getHeight(), 
+                Icon icono = new ImageIcon(ima.getImage().getScaledInstance(label2.getWidth(), label2.getHeight(), 
                         java.awt.Image.SCALE_SMOOTH));
                 
-                label1.setIcon(icono);
-                label2.setText(Integer.toString(per.getIdPersonaje()));
+                label2.setIcon(icono);
+                label3.setText(per.getImagen());
+                label1.setText(Integer.toString(per.getIdPersonaje()));
             }
 
         } catch (SQLException e) {
