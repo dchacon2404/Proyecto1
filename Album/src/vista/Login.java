@@ -206,7 +206,9 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
-        System.exit(0);
+        this.dispose();
+        Inicio inicio = new Inicio();
+        inicio.btnEntrar.setVisible(true);
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered

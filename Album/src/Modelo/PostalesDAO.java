@@ -97,9 +97,4 @@ public class PostalesDAO {
         return r;
     }
     
-    //Todos los personajes, Lista Doblemente Enlazada
-    /*public DoublyLinkedList ListasTodos() {
-        DoublyLinkedList lista = new DoublyLinkedList();
-        String sql = "";
-    }*/
 }
