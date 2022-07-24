@@ -1,15 +1,15 @@
 package Modelo;
 
-public class Postales {
+public class ClasePostales {
     
     private int idPerfil;
     private int idPersonaje;
     private String imagen;
 
-    public Postales() {
+    public ClasePostales() {
     }
     
-    public Postales(int idPerfil, int idPersonaje, String imagen) {
+    public ClasePostales(int idPerfil, int idPersonaje, String imagen) {
         this.idPerfil = idPerfil;
         this.idPersonaje = idPersonaje;
         this.imagen = imagen;

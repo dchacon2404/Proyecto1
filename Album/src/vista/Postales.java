@@ -192,17 +192,14 @@ public class Postales extends javax.swing.JFrame {
         bg.add(lblIdPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 30, 30));
 
         lblPath1.setBackground(new java.awt.Color(0, 0, 0));
-        lblPath1.setForeground(new java.awt.Color(51, 51, 51));
         lblPath1.setText(".");
         bg.add(lblPath1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 550, 200, -1));
 
         lblPath2.setBackground(new java.awt.Color(0, 0, 0));
-        lblPath2.setForeground(new java.awt.Color(51, 51, 51));
         lblPath2.setText(".");
         bg.add(lblPath2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 220, -1));
 
         lblPath3.setBackground(new java.awt.Color(0, 0, 0));
-        lblPath3.setForeground(new java.awt.Color(51, 51, 51));
         lblPath3.setText(".");
         bg.add(lblPath3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 540, 260, -1));
 
@@ -307,7 +304,7 @@ public class Postales extends javax.swing.JFrame {
     public javax.swing.JLabel lblIdPostal1;
     public javax.swing.JLabel lblIdPostal2;
     public javax.swing.JLabel lblIdPostal3;
-    public static javax.swing.JLabel lblIdUsuario;
+    public javax.swing.JLabel lblIdUsuario;
     public javax.swing.JLabel lblPath1;
     public javax.swing.JLabel lblPath2;
     public javax.swing.JLabel lblPath3;

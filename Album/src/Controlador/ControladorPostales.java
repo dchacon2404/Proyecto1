@@ -2,41 +2,47 @@ package Controlador;
 
 import Modelo.Personajes;
 import Modelo.PostalesDAO;
+import Modelo.ClasePostales;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import vista.Postales;
 
 public class ControladorPostales implements ActionListener {
     
     Personajes per = new Personajes();
-    Postales post = new Postales();
+    Postales pantalla = new Postales();
     PostalesDAO dao = new PostalesDAO();
+    ClasePostales postales = new ClasePostales();
 
-    public ControladorPostales(Postales post) {
-        this.post = post;
-        this.post.btnAbrirPostal1.addActionListener(this);
-        this.post.btnAbrirPostal2.addActionListener(this);
-        this.post.btnAbrirPostal3.addActionListener(this);
-        this.post.btnGuardar.addActionListener(this);
+    public ControladorPostales(Postales pantalla) {
+        this.pantalla = pantalla;
+        this.pantalla.btnAbrirPostal1.addActionListener(this);
+        this.pantalla.btnAbrirPostal2.addActionListener(this);
+        this.pantalla.btnAbrirPostal3.addActionListener(this);
+        this.pantalla.btnGuardar.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if (e.getSource() == post.btnAbrirPostal1) {
-            traerPostal(post.lblIdPostal1, post.lblPostal1, post.lblPath1);
+        if (e.getSource() == pantalla.btnAbrirPostal1) {
+            traerPostal(pantalla.lblIdPostal1, pantalla.lblPostal1, pantalla.lblPath1);
         }
         
-        if (e.getSource() == post.btnAbrirPostal2) {
-            traerPostal(post.lblIdPostal2, post.lblPostal2, post.lblPath2);
+        if (e.getSource() == pantalla.btnAbrirPostal2) {
+            traerPostal(pantalla.lblIdPostal2, pantalla.lblPostal2, pantalla.lblPath2);
         }
         
-        if (e.getSource() == post.btnAbrirPostal3) {
-            traerPostal(post.lblIdPostal3, post.lblPostal3, post.lblPath3);
+        if (e.getSource() == pantalla.btnAbrirPostal3) {
+            traerPostal(pantalla.lblIdPostal3, pantalla.lblPostal3, pantalla.lblPath3);
         }
         
-        if (e.getSource() == post.btnGuardar) {
+        if (e.getSource() == pantalla.btnGuardar) {
+            agregarP1();
+            agregarP2();
+            agregarP3();
         }
     }
     
@@ -45,14 +51,50 @@ public class ControladorPostales implements ActionListener {
     }
     
     public void agregarP1() {
-
+        int idPerfil = Integer.parseInt(pantalla.lblIdUsuario.getText());
+        int idPersonaje = Integer.parseInt(pantalla.lblIdPostal1.getText());
+        String imagen = pantalla.lblPath1.getText();
+        postales.setIdPerfil(idPerfil);
+        postales.setIdPersonaje(idPersonaje);
+        postales.setImagen(imagen);
+        int r = dao.agregarP1(postales);
+        
+        if (r == 1) {
+            JOptionPane.showMessageDialog(pantalla, "Postales guardadas");
+        } else {
+            JOptionPane.showMessageDialog(pantalla, "Las postales no se pudieron guardar");
+        }
     }
 
     public void agregarP2() {
-
+        int idPerfil = Integer.parseInt(pantalla.lblIdUsuario.getText());
+        int idPersonaje = Integer.parseInt(pantalla.lblIdPostal2.getText());
+        String imagen = pantalla.lblPath2.getText();
+        postales.setIdPerfil(idPerfil);
+        postales.setIdPersonaje(idPersonaje);
+        postales.setImagen(imagen);
+        int r = dao.agregarP2(postales);
+        
+        if (r == 1) {
+            System.out.println("Postal guardada");
+        } else {
+            System.out.println("Postal no guardada");
+        }
     }
 
     public void agregarP3() {
-
+        int idPerfil = Integer.parseInt(pantalla.lblIdUsuario.getText());
+        int idPersonaje = Integer.parseInt(pantalla.lblIdPostal3.getText());
+        String imagen = pantalla.lblPath3.getText();
+        postales.setIdPerfil(idPerfil);
+        postales.setIdPersonaje(idPersonaje);
+        postales.setImagen(imagen);
+        int r = dao.agregarP3(postales);
+        
+        if (r == 1) {
+            System.out.println("Postal guardada");
+        } else {
+            System.out.println("Postal no guardada");
+        }
     }
 }
