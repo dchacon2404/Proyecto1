@@ -32,9 +32,9 @@ public class CustomLinkedListPostales {
         this.tail = tail;
     }
     
-    public void insertarPostal(Postales post) {
+    public void insertarPostal(ClasePostales post) {
         
-        NodePostales node = new NodePostales();
+        NodePostales node = new NodePostales(post);
         node.setPostales(post);
         
         if (this.getHead() == null) {

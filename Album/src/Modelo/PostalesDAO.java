@@ -43,16 +43,16 @@ public class PostalesDAO {
         }
     }
     
-    public int agregarP1(Perfil perfil, Personajes personaje) {
+    public int agregarP1(ClasePostales postales) {
         int r = 0;
         String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
         
         try {
             cnn = conexion.getConnection();
             ps = cnn.prepareStatement(sql);
-            ps.setInt(1, perfil.getIdUsuario());
-            ps.setInt(2, personaje.getIdPersonaje());
-            ps.setString(3, personaje.getImagen());
+            ps.setInt(1, postales.getIdPerfil());
+            ps.setInt(2, postales.getIdPersonaje());
+            ps.setString(3, postales.getImagen());
             r = ps.executeUpdate();
             
         } catch (SQLException e) {
@@ -61,16 +61,16 @@ public class PostalesDAO {
         return r;
     }
     
-    public int agregarP2(Perfil perfil, Personajes personaje) {
+    public int agregarP2(ClasePostales postales) {
         int r = 0;
         String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
         
         try {
             cnn = conexion.getConnection();
             ps = cnn.prepareStatement(sql);
-            ps.setInt(1, perfil.getIdUsuario());
-            ps.setInt(2, personaje.getIdPersonaje());
-            ps.setString(3, personaje.getImagen());
+            ps.setInt(1, postales.getIdPerfil());
+            ps.setInt(2, postales.getIdPersonaje());
+            ps.setString(3, postales.getImagen());
             r = ps.executeUpdate();
             
         } catch (SQLException e) {
@@ -79,16 +79,16 @@ public class PostalesDAO {
         return r;
     }
     
-    public int agregarP3(Perfil perfil, Personajes personaje) {
+    public int agregarP3(ClasePostales postales) {
         int r = 0;
         String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
         
         try {
             cnn = conexion.getConnection();
             ps = cnn.prepareStatement(sql);
-            ps.setInt(1, perfil.getIdUsuario());
-            ps.setInt(2, personaje.getIdPersonaje());
-            ps.setString(3, personaje.getImagen());
+            ps.setInt(1, postales.getIdPerfil());
+            ps.setInt(2, postales.getIdPersonaje());
+            ps.setString(3, postales.getImagen());
             r = ps.executeUpdate();
             
         } catch (SQLException e) {
@@ -96,4 +96,10 @@ public class PostalesDAO {
         }
         return r;
     }
+    
+    //Todos los personajes, Lista Doblemente Enlazada
+    /*public DoublyLinkedList ListasTodos() {
+        DoublyLinkedList lista = new DoublyLinkedList();
+        String sql = "";
+    }*/
 }

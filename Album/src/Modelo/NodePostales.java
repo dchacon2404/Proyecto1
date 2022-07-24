@@ -2,13 +2,15 @@ package Modelo;
 
 public class NodePostales {
     
-    private Postales postales;
+    private ClasePostales postales;
     private NodePostales next;
-
-    public NodePostales() {
+    private NodePostales previous;
+    
+    public NodePostales(ClasePostales postales) {
+        this.postales = postales;
     }
 
-    public Postales getPostales() {
+    public ClasePostales getPostales() {
         return postales;
     }
 
@@ -16,12 +18,19 @@ public class NodePostales {
         return next;
     }
 
-    public void setPostales(Postales postales) {
+    public void setPostales(ClasePostales postales) {
         this.postales = postales;
     }
-
+    
     public void setNext(NodePostales next) {
         this.next = next;
     }
     
+    public NodePostales getPrevious() {
+        return previous;
+    }
+    
+    public void setPrevious(NodePostales previous) {
+        this.previous = previous;
+    }
 }
