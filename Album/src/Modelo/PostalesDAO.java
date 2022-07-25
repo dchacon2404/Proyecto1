@@ -97,7 +97,25 @@ public class PostalesDAO {
         return r;
     }
     
-    public void ListaTodos() {
+    public void ListaTodos(ClasePostales postales) {
         
+        String sql = "select imagen from postales where idPerfil = ?;";
+        DoublyLinkedList lista = new DoublyLinkedList();
+        
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            ps.setInt(1, postales.getIdPerfil());
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                //postales.setIdPerfil(rs.getInt(1));
+                //postales.setIdPersonaje(rs.getInt(2));
+                postales.setImagen(rs.getString(1));
+                lista.insert(postales);
+            }
+        } catch (SQLException e) {
+            
+        }    
     }
 }
