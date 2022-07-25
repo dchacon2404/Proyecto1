@@ -33,7 +33,7 @@ CREATE TABLE `perfil` (
   `Contrasena` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPerfil`),
   UNIQUE KEY `NombreUsuario_UNIQUE` (`NombreUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +88,7 @@ CREATE TABLE `postales` (
   KEY `idPersonaje_idx` (`idPersonaje`),
   CONSTRAINT `idPerfil` FOREIGN KEY (`idPerfil`) REFERENCES `perfil` (`idPerfil`),
   CONSTRAINT `idPersonaje` FOREIGN KEY (`idPersonaje`) REFERENCES `personajes` (`idPersonaje`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +97,7 @@ CREATE TABLE `postales` (
 
 LOCK TABLES `postales` WRITE;
 /*!40000 ALTER TABLE `postales` DISABLE KEYS */;
+INSERT INTO `postales` VALUES (1,1,8,'src/Images/quin-gon.png'),(2,1,9,'src/Images/R2-D2.png'),(3,1,19,'src/Images/SnowTrooper.png'),(4,1,14,'src/Images/ComandanteBacara.png'),(5,1,6,'src/Images/ObiWanK.png'),(6,1,19,'src/Images/SnowTrooper.png'),(7,1,10,'src/Images/Yoda.png'),(8,1,9,'src/Images/R2-D2.png'),(9,1,9,'src/Images/R2-D2.png');
 /*!40000 ALTER TABLE `postales` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -109,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-23  9:49:21
+-- Dump completed on 2022-07-24 18:48:07
