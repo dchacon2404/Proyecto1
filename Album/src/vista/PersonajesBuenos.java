@@ -91,6 +91,11 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
         btnSiguiente.setText("SIGUIENTE");
         btnSiguiente.setBorder(null);
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteActionPerformed(evt);
+            }
+        });
         bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 110, 30));
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
@@ -149,6 +154,10 @@ public class PersonajesBuenos extends javax.swing.JFrame {
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
         btnSalir.setForeground(Color.red);
     }//GEN-LAST:event_btnSalirMouseExited
+
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+        
+    }//GEN-LAST:event_btnSiguienteActionPerformed
 
     /**
      * @param args the command line arguments

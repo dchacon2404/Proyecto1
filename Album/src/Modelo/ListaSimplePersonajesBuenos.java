@@ -8,6 +8,10 @@ import DB.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import vista.PersonajesBuenos;
+
 
 /**
  *
@@ -18,6 +22,7 @@ public class ListaSimplePersonajesBuenos {
     PreparedStatement ps;
     ResultSet rs;
     Conexion conexion = new Conexion();
+    PersonajesBuenos perBuenos = new PersonajesBuenos();
     
     private NodePersonajesBuenos head;
     private NodePersonajesBuenos tail;
@@ -45,18 +50,32 @@ public class ListaSimplePersonajesBuenos {
         
         NodePersonajesBuenos node = new NodePersonajesBuenos();
         node.setPostal(postal);
-        
+
         if (this.getHead() == null) {
             this.setHead(node);
+            String imagen = node.getPostal().getImagen();
+            ImageIcon ima = new ImageIcon(imagen);
+            Icon icono = new ImageIcon(ima.getImage().getScaledInstance(perBuenos.lblPersonaje.getWidth(),
+                    perBuenos.lblPersonaje.getHeight(), java.awt.Image.SCALE_SMOOTH));
+            perBuenos.lblPersonaje.setIcon(icono);
+            perBuenos.lblPersonaje.setText(node.getPostal().getImagen());
+
         } else {
             NodePersonajesBuenos currentNode = this.getHead();
             while (currentNode.getNext() != null) {
                 currentNode = currentNode.getNext();
+
+                String imagen = node.getPostal().getImagen();
+                ImageIcon ima = new ImageIcon(imagen);
+                Icon icono = new ImageIcon(ima.getImage().getScaledInstance(perBuenos.lblPersonaje.getWidth(),
+                        perBuenos.lblPersonaje.getHeight(), java.awt.Image.SCALE_SMOOTH));
+                perBuenos.lblPersonaje.setIcon(icono);
+                perBuenos.lblPersonaje.setText(node.getPostal().getImagen());
             }
             currentNode.setNext(node);
         }
     }
-    
+
     public ListaSimplePersonajesBuenos listarBuenos(){
         
         ListaSimplePersonajesBuenos datos = new ListaSimplePersonajesBuenos();
