@@ -161,7 +161,7 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         ClasePostales claseP = new ClasePostales();
         ListaSimplePersonajesBuenos list = new ListaSimplePersonajesBuenos();
         claseP.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
-        list.listarBuenos(claseP, lblPersonaje);
+        list.insert(claseP, lblPersonaje);
 
         
         
