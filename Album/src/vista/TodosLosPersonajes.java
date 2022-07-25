@@ -176,18 +176,19 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
     }//GEN-LAST:event_headMouseDragged
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-//        PostalesDAO dao = new PostalesDAO();
-//        ClasePostales postales = new ClasePostales();
-//        DoublyLinkedList lista = new DoublyLinkedList();
-//        
-//        postales.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
-//        dao.ListaTodos(postales);
-
+        PostalesDAO dao = new PostalesDAO();
         ClasePostales postales = new ClasePostales();
         DoublyLinkedList lista = new DoublyLinkedList();
         
         postales.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
-        lista.insert(postales, lblPersonaje);
+        dao.ListaTodos(postales, lblPersonaje);
+        
+//        ClasePostales postales = new ClasePostales();
+//        DoublyLinkedList lista = new DoublyLinkedList();
+//        
+//        postales.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
+//        lista.insert(postales);
+//        lista.print();
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     /**

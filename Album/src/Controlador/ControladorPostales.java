@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import vista.PersonajesBuenos;
 import vista.Postales;
+import vista.Principal;
 
 public class ControladorPostales implements ActionListener {
     
@@ -43,9 +44,22 @@ public class ControladorPostales implements ActionListener {
         }
         
         if (e.getSource() == pantalla.btnGuardar) {
-            agregarP1();
-            agregarP2();
-            agregarP3();
+            
+            if (pantalla.lblPath1.getText().equals(".")) {
+                JOptionPane.showMessageDialog(pantalla, "Abra el primer sobre para guardar las postales");
+            } else if(pantalla.lblPath2.getText().equals(".")) {
+                JOptionPane.showMessageDialog(pantalla, "Abra el segundo sobre para guardar las postales");
+            } else if(pantalla.lblPath3.getText().equals(".")) {
+                JOptionPane.showMessageDialog(pantalla, "Abra el tercer sobre para guardar las postales");
+            } else {
+                agregarP1();
+                agregarP2();
+                agregarP3();
+                pantalla.dispose();
+                Principal principal = new Principal(Integer.parseInt(pantalla.lblIdUsuario.getText()));
+                principal.setVisible(true);
+                principal.setLocationRelativeTo(null);
+            }
         }
     }
     

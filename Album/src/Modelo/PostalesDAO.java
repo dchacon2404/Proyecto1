@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import vista.TodosLosPersonajes;
 
 public class PostalesDAO {
     
@@ -97,4 +98,31 @@ public class PostalesDAO {
         return r;
     }
     
+    public void ListaTodos(ClasePostales postales, JLabel label) {
+        
+        String sql = "select imagen from postales where idPerfil = ?;";
+        DoublyLinkedList lista = new DoublyLinkedList();
+        TodosLosPersonajes todos = new TodosLosPersonajes();
+        
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            ps.setInt(1, postales.getIdPerfil());
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                //postales.setIdPerfil(rs.getInt(1));
+                //postales.setIdPersonaje(rs.getInt(2));
+                postales.setImagen(rs.getString(1));
+                
+                ImageIcon img = new ImageIcon(postales.getImagen());
+                Icon icono = new ImageIcon(img.getImage().getScaledInstance(290, 395, java.awt.Image.SCALE_SMOOTH));
+                
+                label.setIcon(icono);
+                lista.insert(postales);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al traer personajes: "+e.getMessage());
+        }    
+    }
 }

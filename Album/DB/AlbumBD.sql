@@ -33,7 +33,7 @@ CREATE TABLE `perfil` (
   `Contrasena` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPerfil`),
   UNIQUE KEY `NombreUsuario_UNIQUE` (`NombreUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +88,7 @@ CREATE TABLE `postales` (
   KEY `idPersonaje_idx` (`idPersonaje`),
   CONSTRAINT `idPerfil` FOREIGN KEY (`idPerfil`) REFERENCES `perfil` (`idPerfil`),
   CONSTRAINT `idPersonaje` FOREIGN KEY (`idPersonaje`) REFERENCES `personajes` (`idPersonaje`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,8 +97,89 @@ CREATE TABLE `postales` (
 
 LOCK TABLES `postales` WRITE;
 /*!40000 ALTER TABLE `postales` DISABLE KEYS */;
+INSERT INTO `postales` VALUES (1,1,8,'src/Images/quin-gon.png'),(2,1,9,'src/Images/R2-D2.png'),(3,1,19,'src/Images/SnowTrooper.png'),(4,1,14,'src/Images/ComandanteBacara.png'),(5,1,6,'src/Images/ObiWanK.png'),(6,1,19,'src/Images/SnowTrooper.png'),(7,1,10,'src/Images/Yoda.png'),(8,1,9,'src/Images/R2-D2.png'),(9,1,9,'src/Images/R2-D2.png');
 /*!40000 ALTER TABLE `postales` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'album'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `pa_AgregarP1` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_AgregarP1`(
+in idPerfil int,
+in idPersonaje int,
+in imagen varchar(70)
+)
+begin
+    insert into Postales
+    (idPerfil, idPersonaje, imagen)
+    values(idPerfil, idPersonaje, imagen);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `pa_AgregarPerfil` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_AgregarPerfil`(
+in nombre varchar(45),
+in apellidos varchar(45),
+in edad int,
+in nombreUsuario varchar(45),
+in contrasena varchar(45)
+ )
+begin
+    INSERT INTO perfil
+        (Nombre, Apellidos, Edad, NombreUsuario, Contrasena)
+        VALUES(nombre, apellidos, edad, nombreUsuario, contrasena);
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `pa_Login` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_Login`(
+ out idPerfil int,
+ in nombreUsuario varchar(45),
+ out contrasena varchar(45)
+)
+begin
+    Select idPerfil, NombreUsuario, Contrasena 
+    From perfil where NombreUsuario = nombreUsuario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -109,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-23  9:49:21
+-- Dump completed on 2022-07-24 18:54:59

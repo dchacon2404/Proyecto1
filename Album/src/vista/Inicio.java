@@ -16,6 +16,7 @@ public class Inicio extends javax.swing.JFrame {
                 java.awt.Image.SCALE_SMOOTH));
         fondo.setIcon(icono);
         btnEntrar.setVisible(true);
+        btnEntrar2.setVisible(false);
     }
 
     /**
@@ -30,6 +31,7 @@ public class Inicio extends javax.swing.JFrame {
         bg = new javax.swing.JPanel();
         btnEntrar = new javax.swing.JLabel();
         btnSalir = new javax.swing.JLabel();
+        btnEntrar2 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,6 +74,17 @@ public class Inicio extends javax.swing.JFrame {
         });
         bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 0, 70, 40));
 
+        btnEntrar2.setBackground(new java.awt.Color(0, 0, 0));
+        btnEntrar2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEntrar2.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar2.setText("Volver a ingresar");
+        btnEntrar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEntrar2MouseClicked(evt);
+            }
+        });
+        bg.add(btnEntrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 30));
+
         fondo.setText("jLabel1");
         bg.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 760));
 
@@ -96,6 +109,7 @@ public class Inicio extends javax.swing.JFrame {
         log.setVisible(true);
         log.setLocationRelativeTo(null);
         btnEntrar.setVisible(false);
+        btnEntrar2.setVisible(true);
     }//GEN-LAST:event_btnEntrarMouseClicked
 
     private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
@@ -117,6 +131,12 @@ public class Inicio extends javax.swing.JFrame {
     private void btnEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseExited
         btnEntrar.setForeground(Color.white);
     }//GEN-LAST:event_btnEntrarMouseExited
+
+    private void btnEntrar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrar2MouseClicked
+        Login log =  new Login();
+        log.setVisible(true);
+        log.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnEntrar2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -156,6 +176,7 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     public javax.swing.JLabel btnEntrar;
+    public javax.swing.JLabel btnEntrar2;
     public javax.swing.JLabel btnSalir;
     public javax.swing.JLabel fondo;
     // End of variables declaration//GEN-END:variables
