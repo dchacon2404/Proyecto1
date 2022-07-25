@@ -60,7 +60,9 @@ public class ListaSimplePersonajesBuenos {
     public ListaSimplePersonajesBuenos listarBuenos(){
         
         ListaSimplePersonajesBuenos datos = new ListaSimplePersonajesBuenos();
-        String sql ="";
+        String sql ="SELECT imagen FROM album.postales\n" +
+                    "where idPersonaje < 11\n" +
+                    "and idPerfil = ?";
         try {
             cnn = conexion.getConnection();
             ps = cnn.prepareStatement(sql);
