@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import vista.PersonajesBuenos;
 import vista.Postales;
 import vista.Principal;
 
@@ -16,6 +17,8 @@ public class ControladorPostales implements ActionListener {
     Postales pantalla = new Postales();
     PostalesDAO dao = new PostalesDAO();
     ClasePostales postales = new ClasePostales();
+
+    
 
     public ControladorPostales(Postales pantalla) {
         this.pantalla = pantalla;
@@ -111,4 +114,5 @@ public class ControladorPostales implements ActionListener {
             System.out.println("Postal no guardada");
         }
     }
+    
 }
