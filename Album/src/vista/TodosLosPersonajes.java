@@ -181,8 +181,8 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         DoublyLinkedList lista = new DoublyLinkedList();
         
         postales.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
-        dao.ListaTodos(postales);
-
+        dao.ListaTodos(postales, lblPersonaje);
+        
 //        ClasePostales postales = new ClasePostales();
 //        DoublyLinkedList lista = new DoublyLinkedList();
 //        
