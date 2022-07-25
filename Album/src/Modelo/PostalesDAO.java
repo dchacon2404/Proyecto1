@@ -97,4 +97,7 @@ public class PostalesDAO {
         return r;
     }
     
+    public void ListaTodos() {
+        
+    }
 }
