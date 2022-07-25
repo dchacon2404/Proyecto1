@@ -1,5 +1,7 @@
 package vista;
 
+import Modelo.ClasePostales;
+import Modelo.ListaSimplePersonajesBuenos;
 import java.awt.Color;
 
 public class PersonajesBuenos extends javax.swing.JFrame {
@@ -156,6 +158,12 @@ public class PersonajesBuenos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseExited
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+        ClasePostales claseP = new ClasePostales();
+        ListaSimplePersonajesBuenos list = new ListaSimplePersonajesBuenos();
+        claseP.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
+        list.listarBuenos(claseP, lblPersonaje);
+
+        
         
     }//GEN-LAST:event_btnSiguienteActionPerformed
 

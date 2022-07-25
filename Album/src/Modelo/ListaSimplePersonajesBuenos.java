@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import vista.PersonajesBuenos;
 
 
@@ -76,7 +77,7 @@ public class ListaSimplePersonajesBuenos {
         }
     }
 
-    public ListaSimplePersonajesBuenos listarBuenos(){
+    public ListaSimplePersonajesBuenos listarBuenos(ClasePostales claseP, JLabel lblPersonaje){
         
         ListaSimplePersonajesBuenos datos = new ListaSimplePersonajesBuenos();
         String sql ="SELECT imagen FROM album.postales\n" +
@@ -100,6 +101,5 @@ public class ListaSimplePersonajesBuenos {
         }
         return datos;
     }
-    
-    
+   
 }
