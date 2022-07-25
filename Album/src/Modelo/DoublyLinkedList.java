@@ -54,16 +54,15 @@ public class DoublyLinkedList {
     
     public void print(){
         NodePostales currentNode = this.getHead();
-        System.out.println(currentNode.getPostales().getImagen());
         
-//        if (currentNode == null){
-//            System.out.println("list is empty");  
-//            return; 
-//        }
-//        while(currentNode != null) {  
-//            //Print each node and then go to next.  
-//            System.out.println(currentNode.getPostales().getImagen() + " "); 
-//            currentNode = currentNode.getNext();
-//        } 
+        if (currentNode == null){
+            System.out.println("list is empty");  
+            return; 
+        }
+        while(currentNode != null) {  
+            //Print each node and then go to next.  
+            System.out.println(currentNode.getPostales().getImagen() + " "); 
+            currentNode = currentNode.getNext();
+        } 
     }
 }
