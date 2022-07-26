@@ -82,6 +82,12 @@ public class Inicio extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEntrar2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEntrar2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEntrar2MouseExited(evt);
+            }
         });
         bg.add(btnEntrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 30));
 
@@ -133,10 +139,17 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarMouseExited
 
     private void btnEntrar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrar2MouseClicked
-        Login log =  new Login();
-        log.setVisible(true);
-        log.setLocationRelativeTo(null);
+        btnEntrar.setVisible(true);
+        btnEntrar2.setVisible(false);
     }//GEN-LAST:event_btnEntrar2MouseClicked
+
+    private void btnEntrar2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrar2MouseEntered
+        btnEntrar2.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnEntrar2MouseEntered
+
+    private void btnEntrar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrar2MouseExited
+        btnEntrar2.setForeground(Color.white);
+    }//GEN-LAST:event_btnEntrar2MouseExited
 
     /**
      * @param args the command line arguments

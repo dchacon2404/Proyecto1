@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import vista.TodosLosPersonajes;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class PostalesDAO {
     
@@ -98,11 +99,21 @@ public class PostalesDAO {
         return r;
     }
     
-    public void ListaTodos(ClasePostales postales, JLabel label) {
+    public void ListaBuenos(ClasePostales postales, JTable table) {
         
-        String sql = "select imagen from postales where idPerfil = ?;";
+    }
+    
+    public void ListaMalos(ClasePostales postales, JTable table) {
+        
+    }
+    
+    public void ListaTodos(ClasePostales postales, JTable table) {
+        
+        String[] title = {"ID DE TODOS MIS PERSONAJES"};
+        String[] datos = new String[1];
+        DefaultTableModel modelo = new DefaultTableModel(null, title);
+        String sql = "select idPersonaje from postales where idPerfil = ?;";
         DoublyLinkedList lista = new DoublyLinkedList();
-        TodosLosPersonajes todos = new TodosLosPersonajes();
         
         try {
             cnn = conexion.getConnection();
@@ -111,18 +122,23 @@ public class PostalesDAO {
             rs = ps.executeQuery();
             
             while (rs.next()) {
-                //postales.setIdPerfil(rs.getInt(1));
-                //postales.setIdPersonaje(rs.getInt(2));
-                postales.setImagen(rs.getString(1));
+                postales.setIdPersonaje(rs.getInt(1));
                 
-                ImageIcon img = new ImageIcon(postales.getImagen());
-                Icon icono = new ImageIcon(img.getImage().getScaledInstance(290, 395, java.awt.Image.SCALE_SMOOTH));
-                
-                label.setIcon(icono);
+                //Acá se insertan los nodos
                 lista.insert(postales);
-            }
+                
+                //Se agregra el id del personaje a la tabla
+                datos[0] = Integer.toString(postales.getIdPersonaje());
+                modelo.addRow(datos);
+            } 
+            table.setModel(modelo);
+            
         } catch (SQLException e) {
             System.out.println("Error al traer personajes: "+e.getMessage());
         }    
+    }
+    
+    public void ListaRepetidas(ClasePostales postales, JTable table) {
+        
     }
 }

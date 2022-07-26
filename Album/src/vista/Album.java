@@ -1,5 +1,7 @@
 package vista;
 
+import Modelo.ClasePostales;
+import Modelo.PostalesDAO;
 import java.awt.Color;
 
 
@@ -219,27 +221,47 @@ public class Album extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnBuenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuenosActionPerformed
-        PersonajesBuenos pb = new PersonajesBuenos();
-        pb.setVisible(true);
-        pb.setLocationRelativeTo(null);
+        PersonajesBuenos buenos = new PersonajesBuenos();
+        buenos.setVisible(true);
+        buenos.setLocationRelativeTo(null);
+        PostalesDAO dao = new PostalesDAO();
+        ClasePostales postales = new ClasePostales();
+        
+        postales.setIdPerfil(Integer.parseInt(lblIdUsuario.getText()));
+        dao.ListaBuenos(postales, buenos.tableId);
     }//GEN-LAST:event_btnBuenosActionPerformed
 
     private void btnTodasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodasActionPerformed
         TodosLosPersonajes todos  = new TodosLosPersonajes();
         todos.setVisible(true);
         todos.setLocationRelativeTo(null);
+        PostalesDAO dao = new PostalesDAO();
+        ClasePostales postales = new ClasePostales();
+        
+        postales.setIdPerfil(Integer.parseInt(lblIdUsuario.getText()));
+        dao.ListaTodos(postales, todos.tableId);
     }//GEN-LAST:event_btnTodasActionPerformed
 
     private void btnVillanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVillanosActionPerformed
-        PersonajesMalos pm = new PersonajesMalos();
-        pm.setVisible(true);
-        pm.setLocationRelativeTo(null);
+        PersonajesMalos malos = new PersonajesMalos();
+        malos.setVisible(true);
+        malos.setLocationRelativeTo(null);
+        PostalesDAO dao = new PostalesDAO();
+        ClasePostales postales = new ClasePostales();
+        
+        postales.setIdPerfil(Integer.parseInt(lblIdUsuario.getText()));
+        dao.ListaMalos(postales, malos.tableId);
     }//GEN-LAST:event_btnVillanosActionPerformed
 
     private void btnRepetidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRepetidasActionPerformed
-        Repetidas r = new Repetidas();
-        r.setVisible(true);
-        r.setLocationRelativeTo(null);
+        Repetidas repetidas = new Repetidas();
+        repetidas.setVisible(true);
+        repetidas.setLocationRelativeTo(null);
+        PostalesDAO dao = new PostalesDAO();
+        ClasePostales postales = new ClasePostales();
+        
+        postales.setIdPerfil(Integer.parseInt(lblIdUsuario.getText()));
+        dao.ListaRepetidas(postales, repetidas.tableId);
     }//GEN-LAST:event_btnRepetidasActionPerformed
 
     /**

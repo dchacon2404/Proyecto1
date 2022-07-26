@@ -1,9 +1,11 @@
 package vista;
 
-import Modelo.ClasePostales;
-import Modelo.DoublyLinkedList;
-import Modelo.PostalesDAO;
+import DB.Conexion;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -27,14 +29,15 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         lblPersonaje = new javax.swing.JLabel();
-        btnSiguiente = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
         head = new javax.swing.JPanel();
         btnSalir = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
         lblMiId = new javax.swing.JLabel();
         lblIdPerfil = new javax.swing.JLabel();
         lblPath = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableId = new javax.swing.JTable();
+        lblIdPersonaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -49,25 +52,6 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         lblPersonaje.setText("                         PERSONAJE");
         lblPersonaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
         bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 290, 395));
-
-        btnSiguiente.setBackground(new java.awt.Color(0, 0, 0));
-        btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
-        btnSiguiente.setText("SIGUIENTE");
-        btnSiguiente.setBorder(null);
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
-            }
-        });
-        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 490, 120, 40));
-
-        btnVolver.setBackground(new java.awt.Color(0, 0, 0));
-        btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnVolver.setForeground(new java.awt.Color(255, 255, 0));
-        btnVolver.setText("VOLVER");
-        btnVolver.setBorder(null);
-        bg.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 130, 40));
 
         head.setBackground(new java.awt.Color(0, 0, 0));
         head.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -85,14 +69,14 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         head.setLayout(headLayout);
         headLayout.setHorizontalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+            .addGap(0, 580, Short.MAX_VALUE)
         );
         headLayout.setVerticalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 30));
+        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 30));
 
         btnSalir.setBackground(new java.awt.Color(0, 0, 0));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -109,7 +93,7 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
                 btnSalirMouseExited(evt);
             }
         });
-        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 40, 30));
+        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 40, 30));
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -130,22 +114,55 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         bg.add(lblIdPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 30, -1));
 
         lblPath.setBackground(new java.awt.Color(0, 0, 0));
-        lblPath.setForeground(new java.awt.Color(51, 51, 51));
         lblPath.setText(".");
-        bg.add(lblPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, 140, -1));
+        bg.add(lblPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, 50, -1));
+
+        tableId.setBackground(new java.awt.Color(0, 0, 0));
+        tableId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        tableId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tableId.setForeground(new java.awt.Color(255, 255, 0));
+        tableId.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "null"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableIdMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableId);
+        if (tableId.getColumnModel().getColumnCount() > 0) {
+            tableId.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 120, 100));
+
+        lblIdPersonaje.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdPersonaje.setText(".");
+        bg.add(lblIdPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 50, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -175,21 +192,35 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headMouseDragged
 
-    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        PostalesDAO dao = new PostalesDAO();
-        ClasePostales postales = new ClasePostales();
-        DoublyLinkedList lista = new DoublyLinkedList();
+    private void tableIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableIdMouseClicked
         
-        postales.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
-        dao.ListaTodos(postales, lblPersonaje);
+        PreparedStatement ps;
+        ResultSet rs;
+        Connection cnn;
+        Conexion conexion = new Conexion();
+        int fila = tableId.getSelectedRow();
+        lblIdPersonaje.setText(tableId.getValueAt(fila, 0).toString());
         
-//        ClasePostales postales = new ClasePostales();
-//        DoublyLinkedList lista = new DoublyLinkedList();
-//        
-//        postales.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
-//        lista.insert(postales);
-//        lista.print();
-    }//GEN-LAST:event_btnSiguienteActionPerformed
+        String sql = "Select imagen from postales where idPerfil = ? and idPersonaje = ?";
+        
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            ps.setInt(1, Integer.parseInt(lblIdPerfil.getText()));
+            ps.setInt(2, Integer.parseInt(lblIdPersonaje.getText()));
+            rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                lblPath.setText(rs.getString(1));
+                
+                ImageIcon img = new ImageIcon(lblPath.getText());
+                Icon icono = new ImageIcon(img.getImage().getScaledInstance(lblPersonaje.getWidth(), 
+                        lblPersonaje.getHeight(), java.awt.Image.SCALE_SMOOTH));
+                lblPersonaje.setIcon(icono);
+            }
+        } catch (SQLException e) {
+        }
+    }//GEN-LAST:event_tableIdMouseClicked
 
     /**
      * @param args the command line arguments
@@ -229,13 +260,14 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     public javax.swing.JLabel btnSalir;
-    public javax.swing.JButton btnSiguiente;
-    public javax.swing.JButton btnVolver;
     public javax.swing.JPanel head;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel lblIdPerfil;
+    public javax.swing.JLabel lblIdPersonaje;
     public javax.swing.JLabel lblMiId;
     public javax.swing.JLabel lblPath;
     public javax.swing.JLabel lblPersonaje;
     private javax.swing.JLabel lblTitulo;
+    public javax.swing.JTable tableId;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,15 +5,9 @@ public class ClasePostales {
     private int idPerfil;
     private int idPersonaje;
     private String imagen;
-
-    public ClasePostales() {
-    }
     
-    public ClasePostales(int idPerfil, int idPersonaje, String imagen) {
-        this.idPerfil = idPerfil;
-        this.idPersonaje = idPersonaje;
-        this.imagen = imagen;
-    }
+    //Este constructor se usa en el insert de las listas simples
+    public ClasePostales() {}
 
     public int getIdPerfil() {
         return idPerfil;

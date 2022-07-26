@@ -10,16 +10,8 @@ public class Perfil {
     private String nombreUsuario;
     private String contrasena;
 
+    //Este constructor se usa en el controladorPerfil
     public Perfil() {
-    }
-
-    public Perfil(int idUsuario, String nombre, String apellidos, int edad, String nombreUsuario, String contrasena) {
-        this.idUsuario = idUsuario;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.edad = edad;
-        this.nombreUsuario = nombreUsuario;
-        this.contrasena = contrasena;
     }
 
     public int getIdUsuario() {

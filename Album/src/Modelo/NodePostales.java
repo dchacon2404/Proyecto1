@@ -6,6 +6,10 @@ public class NodePostales {
     private NodePostales next;
     private NodePostales previous;
     
+    //Este constructor se usa en el insert de las listas simples
+    public NodePostales() {}
+    
+    //Este constructor se usa en el insert de la lista doble
     public NodePostales(ClasePostales postales) {
         this.postales = postales;
     }

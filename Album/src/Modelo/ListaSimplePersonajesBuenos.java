@@ -1,100 +1,52 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import DB.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import vista.PersonajesBuenos;
 
-/**
- *
- * @author dchac
- */
+
 public class ListaSimplePersonajesBuenos {
-
     Connection cnn;
     PreparedStatement ps;
     ResultSet rs;
     Conexion conexion = new Conexion();
-    PersonajesBuenos perBuenos = new PersonajesBuenos();
-
-    private NodePersonajesBuenos head;
-    private NodePersonajesBuenos tail;
+    
+    private NodePostales head;
+    private NodePostales tail;
 
     public ListaSimplePersonajesBuenos() {
     }
 
-    public NodePersonajesBuenos getHead() {
+    public NodePostales getHead() {
         return head;
     }
 
-    public NodePersonajesBuenos getTail() {
+    public NodePostales getTail() {
         return tail;
     }
 
-    public void setHead(NodePersonajesBuenos head) {
+    public void setHead(NodePostales head) {
         this.head = head;
     }
 
-    public void setTail(NodePersonajesBuenos tail) {
+    public void setTail(NodePostales tail) {
         this.tail = tail;
     }
-
-    public void insert(ClasePostales postales, JLabel lblJLabel) {
-        ListaSimplePersonajesBuenos datos = new ListaSimplePersonajesBuenos();
-        String sql = "SELECT imagen FROM album.postales\n"
-                + "where idPersonaje < 11\n"
-                + "and idPerfil = ?";
-        NodePersonajesBuenos node = new NodePersonajesBuenos();
-        node.setPostal(postales);
-
-        try {
-            cnn = conexion.getConnection();
-            ps = cnn.prepareStatement(sql);
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                ClasePostales postal = new ClasePostales();
-                postal.setIdPerfil(rs.getInt(0));
-                postal.setIdPersonaje(rs.getInt(1));
-                postal.setImagen(rs.getString(3));
-                datos.insert(postales, lblJLabel);
+    
+    public void insert(ClasePostales postal) {
+        
+        NodePostales node = new NodePostales();
+        node.setPostales(postal);
+        
+        if (this.getHead() == null) {
+            this.setHead(node);
+        } else {
+            NodePostales currentNode = this.getHead();
+            while (currentNode.getNext() != null) {
+                currentNode = currentNode.getNext();
             }
-
-            if (this.getHead() == null) {
-                this.setHead(node);
-                String imagen = node.getPostal().getImagen();
-                ImageIcon ima = new ImageIcon(imagen);
-                Icon icono = new ImageIcon(ima.getImage().getScaledInstance(perBuenos.lblPersonaje.getWidth(),
-                        perBuenos.lblPersonaje.getHeight(), java.awt.Image.SCALE_SMOOTH));
-                perBuenos.lblPersonaje.setIcon(icono);
-                perBuenos.lblPersonaje.setText(node.getPostal().getImagen());
-
-            } else {
-                NodePersonajesBuenos currentNode = this.getHead();
-                while (currentNode.getNext() != null) {
-                    currentNode = currentNode.getNext();
-
-                    String imagen = node.getPostal().getImagen();
-                    ImageIcon ima = new ImageIcon(imagen);
-                    Icon icono = new ImageIcon(ima.getImage().getScaledInstance(perBuenos.lblPersonaje.getWidth(),
-                            perBuenos.lblPersonaje.getHeight(), java.awt.Image.SCALE_SMOOTH));
-                    perBuenos.lblPersonaje.setIcon(icono);
-                    perBuenos.lblPersonaje.setText(node.getPostal().getImagen());
-                }
-                currentNode.setNext(node);
-            }
-        } catch (Exception e) {
-            System.out.println("Error ListaSimple: " + e.getMessage());
+            currentNode.setNext(node);
         }
-
     }
-
 }
