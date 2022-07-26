@@ -42,27 +42,15 @@ public class DoublyLinkedList {
 
             this.getHead().setPrevious(null);
             this.getTail().setNext(null);
+            System.out.println(newNode.getPostales().getIdPersonaje());
             System.out.println(newNode.getPostales().getImagen());
         } else {
             this.getTail().setNext(newNode);
             newNode.setPrevious(this.getTail());
             this.setTail(newNode);
             this.getTail().setNext(null);
+            System.out.println(newNode.getPostales().getIdPersonaje());
             System.out.println(newNode.getPostales().getImagen());
         }
-    }
-    
-    public void print(){
-        NodePostales currentNode = this.getHead();
-        
-        if (currentNode == null){
-            System.out.println("list is empty");  
-            return; 
-        }
-        while(currentNode != null) {  
-            //Print each node and then go to next.  
-            System.out.println(currentNode.getPostales().getImagen() + " "); 
-            currentNode = currentNode.getNext();
-        } 
     }
 }

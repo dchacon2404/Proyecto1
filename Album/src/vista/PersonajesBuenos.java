@@ -1,8 +1,13 @@
 package vista;
 
-import Modelo.ClasePostales;
-import Modelo.ListaSimplePersonajesBuenos;
+import DB.Conexion;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 public class PersonajesBuenos extends javax.swing.JFrame {
 
@@ -26,10 +31,13 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         head = new javax.swing.JPanel();
         btnSalir = new javax.swing.JLabel();
         lblPersonaje = new javax.swing.JLabel();
-        btnSiguiente = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         lblMiId = new javax.swing.JLabel();
         lblIdPerfil = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableId = new javax.swing.JTable();
+        lblIdPersonaje = new javax.swing.JLabel();
+        lblPath = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -62,7 +70,7 @@ public class PersonajesBuenos extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 30));
+        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 30));
 
         btnSalir.setBackground(new java.awt.Color(0, 0, 0));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -79,7 +87,7 @@ public class PersonajesBuenos extends javax.swing.JFrame {
                 btnSalirMouseExited(evt);
             }
         });
-        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 40, 30));
+        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 40, 30));
 
         lblPersonaje.setBackground(new java.awt.Color(0, 0, 0));
         lblPersonaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -87,18 +95,6 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         lblPersonaje.setText("                           PERSONAJE");
         lblPersonaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
         bg.add(lblPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 290, 395));
-
-        btnSiguiente.setBackground(new java.awt.Color(0, 0, 0));
-        btnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSiguiente.setForeground(new java.awt.Color(255, 255, 0));
-        btnSiguiente.setText("SIGUIENTE");
-        btnSiguiente.setBorder(null);
-        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguienteActionPerformed(evt);
-            }
-        });
-        bg.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 110, 30));
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -118,17 +114,56 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         lblIdPerfil.setText(".");
         bg.add(lblIdPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 30, -1));
 
+        tableId.setBackground(new java.awt.Color(0, 0, 0));
+        tableId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0)));
+        tableId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tableId.setForeground(new java.awt.Color(255, 255, 0));
+        tableId.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "null"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableId.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableIdMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tableId);
+
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 120, 100));
+
+        lblIdPersonaje.setBackground(new java.awt.Color(0, 0, 0));
+        lblIdPersonaje.setText(".");
+        bg.add(lblIdPersonaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 50, -1));
+
+        lblPath.setBackground(new java.awt.Color(0, 0, 0));
+        lblPath.setText(".");
+        bg.add(lblPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 50, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,15 +192,35 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         btnSalir.setForeground(Color.red);
     }//GEN-LAST:event_btnSalirMouseExited
 
-    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        ClasePostales claseP = new ClasePostales();
-        ListaSimplePersonajesBuenos list = new ListaSimplePersonajesBuenos();
-        claseP.setIdPerfil(Integer.parseInt(lblIdPerfil.getText()));
-        list.insert(claseP, lblPersonaje);
+    private void tableIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableIdMouseClicked
 
-        
-        
-    }//GEN-LAST:event_btnSiguienteActionPerformed
+        PreparedStatement ps;
+        ResultSet rs;
+        Connection cnn;
+        Conexion conexion = new Conexion();
+        int fila = tableId.getSelectedRow();
+        lblIdPersonaje.setText(tableId.getValueAt(fila, 0).toString());
+
+        String sql = "Select imagen from postales where idPerfil = ? and idPersonaje = ?";
+
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            ps.setInt(1, Integer.parseInt(lblIdPerfil.getText()));
+            ps.setInt(2, Integer.parseInt(lblIdPersonaje.getText()));
+            rs = ps.executeQuery();
+
+            while(rs.next()) {
+                lblPath.setText(rs.getString(1));
+
+                ImageIcon img = new ImageIcon(lblPath.getText());
+                Icon icono = new ImageIcon(img.getImage().getScaledInstance(lblPersonaje.getWidth(),
+                    lblPersonaje.getHeight(), java.awt.Image.SCALE_SMOOTH));
+            lblPersonaje.setIcon(icono);
+        }
+        } catch (SQLException e) {
+        }
+    }//GEN-LAST:event_tableIdMouseClicked
 
     /**
      * @param args the command line arguments
@@ -205,11 +260,14 @@ public class PersonajesBuenos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     public javax.swing.JLabel btnSalir;
-    public javax.swing.JButton btnSiguiente;
     public javax.swing.JPanel head;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel lblIdPerfil;
+    public javax.swing.JLabel lblIdPersonaje;
     public javax.swing.JLabel lblMiId;
+    public javax.swing.JLabel lblPath;
     public javax.swing.JLabel lblPersonaje;
     private javax.swing.JLabel lblTitulo;
+    public javax.swing.JTable tableId;
     // End of variables declaration//GEN-END:variables
 }
