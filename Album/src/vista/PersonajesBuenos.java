@@ -201,8 +201,8 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         int fila = tableId.getSelectedRow();
         lblIdPersonaje.setText(tableId.getValueAt(fila, 0).toString());
 
-        String sql = "Select imagen from postales where idPerfil = ? and idPersonaje = ?";
-
+        String sql = "SELECT imagen FROM album.postales\n" +         
+                     "where idPerfil = ? and idPersonaje = ?";
         try {
             cnn = conexion.getConnection();
             ps = cnn.prepareStatement(sql);

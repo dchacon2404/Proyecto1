@@ -100,12 +100,65 @@ public class PostalesDAO {
     }
     
     public void ListaBuenos(ClasePostales postales, JTable table) {
+        String[] title = {"ID DE LOS PERSONAJES BUENOS"};
+        String[] datos = new String[1];
+        DefaultTableModel modelo2 = new DefaultTableModel(null, title);
+        String sql = "select distinct idPersonaje from postales where idPersonaje < 11 and idPerfil = ?;";
+        ListaSimplePersonajes ListS = new ListaSimplePersonajes();
         
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            ps.setInt(1, postales.getIdPerfil());
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                postales.setIdPersonaje(rs.getInt(1));
+                
+                //Acá se insertan los nodos
+                ListS.insert(postales);
+                
+                //Se agregra el id del personaje a la tabla
+                datos[0] = Integer.toString(postales.getIdPersonaje());
+                modelo2.addRow(datos);
+            } 
+            table.setModel(modelo2);
+        }catch (SQLException e) {
+            System.out.println("Error al traer personajes: "+e.getMessage());
+        }      
     }
     
     public void ListaMalos(ClasePostales postales, JTable table) {
         
+        String[] title = {"ID DE LOS PERSONAJES MALOS"};
+        String[] datos = new String[1];
+        DefaultTableModel modelo2 = new DefaultTableModel(null, title);
+        String sql = "select distinct idPersonaje from postales where idPersonaje > 10 and idPerfil = ?;";
+        ListaSimplePersonajes ListS = new ListaSimplePersonajes();
+        
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            ps.setInt(1, postales.getIdPerfil());
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                postales.setIdPersonaje(rs.getInt(1));
+                
+                //Acá se insertan los nodos
+                ListS.insert(postales);
+                
+                //Se agregra el id del personaje a la tabla
+                datos[0] = Integer.toString(postales.getIdPersonaje());
+                modelo2.addRow(datos);
+            } 
+            table.setModel(modelo2);
+        }catch (SQLException e) {
+            System.out.println("Error al traer personajes: "+e.getMessage());
+        } 
     }
+        
+    
     
     public void ListaTodos(ClasePostales postales, JTable table) {
         
