@@ -43,14 +43,12 @@ public class DoublyLinkedList {
             this.getHead().setPrevious(null);
             this.getTail().setNext(null);
             System.out.println(newNode.getPostales().getIdPersonaje());
-            System.out.println(newNode.getPostales().getImagen());
         } else {
             this.getTail().setNext(newNode);
             newNode.setPrevious(this.getTail());
             this.setTail(newNode);
             this.getTail().setNext(null);
             System.out.println(newNode.getPostales().getIdPersonaje());
-            System.out.println(newNode.getPostales().getImagen());
         }
     }
 }

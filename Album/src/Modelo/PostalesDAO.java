@@ -112,7 +112,7 @@ public class PostalesDAO {
         String[] title = {"ID DE TODOS MIS PERSONAJES"};
         String[] datos = new String[1];
         DefaultTableModel modelo = new DefaultTableModel(null, title);
-        String sql = "select idPersonaje from postales where idPerfil = ?;";
+        String sql = "select distinct idPersonaje from postales where idPerfil = ?;";
         DoublyLinkedList lista = new DoublyLinkedList();
         
         try {
@@ -134,11 +134,39 @@ public class PostalesDAO {
             table.setModel(modelo);
             
         } catch (SQLException e) {
-            System.out.println("Error al traer personajes: "+e.getMessage());
+            System.out.println("Error al traer todos los personajes: "+e.getMessage());
         }    
     }
     
     public void ListaRepetidas(ClasePostales postales, JTable table) {
+        String[] title = {"ID DEL PERSONAJE", "VECES REPETIDAS"};
+        String[] datos = new String[2];
+        DefaultTableModel modelo = new DefaultTableModel(null, title);
+        String sql = "select idPersonaje, count(idPersonaje)  as cuantos from "
+                + "postales where idPerfil = ? group by 1 having count(idPersonaje) > 1;";
+        CircularDoublyList lista = new CircularDoublyList();
         
+        try {
+            cnn = conexion.getConnection();
+            ps = cnn.prepareStatement(sql);
+            ps.setInt(1, postales.getIdPerfil());
+            rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                postales.setIdPersonaje(rs.getInt(1));
+                
+                //Acá se insertan los nodos
+                lista.insert(postales);
+                
+                //Se agregra el id del personaje a la tabla
+                datos[0] = Integer.toString(postales.getIdPersonaje());
+                datos[1] = Integer.toString(rs.getInt(2));
+                modelo.addRow(datos);
+            }
+            table.setModel(modelo);
+            
+        } catch(SQLException e) {
+            System.out.println("Error al traer repetidas: "+e.getMessage());
+        }
     }
 }
