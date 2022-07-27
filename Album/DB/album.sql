@@ -1,6 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `album` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `album`;
--- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: album
 -- ------------------------------------------------------
@@ -33,7 +31,7 @@ CREATE TABLE `perfil` (
   `Contrasena` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPerfil`),
   UNIQUE KEY `NombreUsuario_UNIQUE` (`NombreUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +40,7 @@ CREATE TABLE `perfil` (
 
 LOCK TABLES `perfil` WRITE;
 /*!40000 ALTER TABLE `perfil` DISABLE KEYS */;
-INSERT INTO `perfil` VALUES (1,'Andres','Fuentes Corella',19,'andrescr','0000');
+INSERT INTO `perfil` VALUES (1,'Andres','Fuentes Corella',19,'andrescr','0000'),(10,'David','Chacon',20,'dchacon','2404');
 /*!40000 ALTER TABLE `perfil` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +86,7 @@ CREATE TABLE `postales` (
   KEY `idPersonaje_idx` (`idPersonaje`),
   CONSTRAINT `idPerfil` FOREIGN KEY (`idPerfil`) REFERENCES `perfil` (`idPerfil`),
   CONSTRAINT `idPersonaje` FOREIGN KEY (`idPersonaje`) REFERENCES `personajes` (`idPersonaje`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +95,7 @@ CREATE TABLE `postales` (
 
 LOCK TABLES `postales` WRITE;
 /*!40000 ALTER TABLE `postales` DISABLE KEYS */;
-INSERT INTO `postales` VALUES (1,1,8,'src/Images/quin-gon.png'),(2,1,9,'src/Images/R2-D2.png'),(3,1,19,'src/Images/SnowTrooper.png'),(4,1,14,'src/Images/ComandanteBacara.png'),(5,1,6,'src/Images/ObiWanK.png'),(6,1,19,'src/Images/SnowTrooper.png'),(7,1,10,'src/Images/Yoda.png'),(8,1,9,'src/Images/R2-D2.png'),(9,1,9,'src/Images/R2-D2.png');
+INSERT INTO `postales` VALUES (1,1,8,'src/Images/quin-gon.png'),(2,1,9,'src/Images/R2-D2.png'),(3,1,19,'src/Images/SnowTrooper.png'),(4,1,14,'src/Images/ComandanteBacara.png'),(5,1,6,'src/Images/ObiWanK.png'),(6,1,19,'src/Images/SnowTrooper.png'),(7,1,10,'src/Images/Yoda.png'),(8,1,9,'src/Images/R2-D2.png'),(9,1,9,'src/Images/R2-D2.png'),(10,10,19,'src/Images/SnowTrooper.png'),(11,10,13,'src/Images/CapitanRex.png'),(12,10,6,'src/Images/ObiWanK.png'),(13,10,14,'src/Images/ComandanteBacara.png'),(14,10,4,'src/Images/HanSolo.png'),(15,10,19,'src/Images/SnowTrooper.png'),(16,10,9,'src/Images/R2-D2.png'),(17,10,13,'src/Images/CapitanRex.png'),(18,10,10,'src/Images/Yoda.png');
 /*!40000 ALTER TABLE `postales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,11 +167,31 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_Login`(
  out idPerfil int,
  in nombreUsuario varchar(45),
- out contrasena varchar(45)
+ in contrasena varchar(45)
 )
 begin
     Select idPerfil, NombreUsuario, Contrasena 
     From perfil where NombreUsuario = nombreUsuario;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `pa_TraerPostal` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_TraerPostal`(
+)
+begin
+ select idPersonaje, imagen from personajes order by rand() limit 1;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -190,4 +208,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-24 18:54:59
+-- Dump completed on 2022-07-27 15:43:07
