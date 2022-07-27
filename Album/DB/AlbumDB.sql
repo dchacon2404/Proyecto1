@@ -86,7 +86,7 @@ CREATE TABLE `postales` (
   KEY `idPersonaje_idx` (`idPersonaje`),
   CONSTRAINT `idPerfil` FOREIGN KEY (`idPerfil`) REFERENCES `perfil` (`idPerfil`),
   CONSTRAINT `idPersonaje` FOREIGN KEY (`idPersonaje`) REFERENCES `personajes` (`idPersonaje`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `postales` (
 
 LOCK TABLES `postales` WRITE;
 /*!40000 ALTER TABLE `postales` DISABLE KEYS */;
-INSERT INTO `postales` VALUES (1,1,8,'src/Images/quin-gon.png'),(2,1,9,'src/Images/R2-D2.png'),(3,1,19,'src/Images/SnowTrooper.png'),(4,1,14,'src/Images/ComandanteBacara.png'),(5,1,6,'src/Images/ObiWanK.png'),(6,1,19,'src/Images/SnowTrooper.png'),(7,1,10,'src/Images/Yoda.png'),(8,1,9,'src/Images/R2-D2.png'),(9,1,9,'src/Images/R2-D2.png'),(10,10,19,'src/Images/SnowTrooper.png'),(11,10,13,'src/Images/CapitanRex.png'),(12,10,6,'src/Images/ObiWanK.png'),(13,10,14,'src/Images/ComandanteBacara.png'),(14,10,4,'src/Images/HanSolo.png'),(15,10,19,'src/Images/SnowTrooper.png'),(16,10,9,'src/Images/R2-D2.png'),(17,10,13,'src/Images/CapitanRex.png'),(18,10,10,'src/Images/Yoda.png');
+INSERT INTO `postales` VALUES (1,1,8,'src/Images/quin-gon.png'),(2,1,9,'src/Images/R2-D2.png'),(3,1,19,'src/Images/SnowTrooper.png'),(4,1,14,'src/Images/ComandanteBacara.png'),(5,1,6,'src/Images/ObiWanK.png'),(6,1,19,'src/Images/SnowTrooper.png'),(7,1,10,'src/Images/Yoda.png'),(8,1,9,'src/Images/R2-D2.png'),(9,1,9,'src/Images/R2-D2.png'),(10,10,19,'src/Images/SnowTrooper.png'),(11,10,13,'src/Images/CapitanRex.png'),(12,10,6,'src/Images/ObiWanK.png'),(13,10,14,'src/Images/ComandanteBacara.png'),(14,10,4,'src/Images/HanSolo.png'),(15,10,19,'src/Images/SnowTrooper.png'),(16,10,9,'src/Images/R2-D2.png'),(17,10,13,'src/Images/CapitanRex.png'),(18,10,10,'src/Images/Yoda.png'),(19,10,5,'src/Images/LukeNiño.png'),(20,10,7,'src/Images/PrincesaLeia.png'),(21,10,2,'src/Images/C3PO.png');
 /*!40000 ALTER TABLE `postales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,6 +154,71 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `pa_ListBuenos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_ListBuenos`(
+id int
+)
+begin
+ select distinct idPersonaje from postales where idPersonaje < 11
+ and idPerfil = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `pa_ListMalos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_ListMalos`(
+id int
+)
+begin
+ select distinct idPersonaje from postales where idPersonaje > 10
+ and idPerfil = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `pa_ListTodos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_ListTodos`(
+id int
+)
+begin
+ select distinct idPersonaje from postales where idPerfil = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `pa_Login` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -165,13 +230,10 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_Login`(
- out idPerfil int,
- in nombreUsuario varchar(45),
- in contrasena varchar(45)
+nombre varchar(30)
 )
 begin
-    Select idPerfil, NombreUsuario, Contrasena 
-    From perfil where NombreUsuario = nombreUsuario;
+ select idPerfil, NombreUsuario, Contrasena From perfil where NombreUsuario = nombre;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -208,4 +270,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-27 15:43:07
+-- Dump completed on 2022-07-27 16:25:16
