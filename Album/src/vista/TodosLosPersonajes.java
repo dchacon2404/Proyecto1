@@ -69,19 +69,19 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         head.setLayout(headLayout);
         headLayout.setHorizontalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGap(0, 730, Short.MAX_VALUE)
         );
         headLayout.setVerticalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 30));
+        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 30));
 
         btnSalir.setBackground(new java.awt.Color(0, 0, 0));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 0, 0));
-        btnSalir.setText("   X");
+        btnSalir.setText("    X");
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSalirMouseClicked(evt);
@@ -93,7 +93,7 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
                 btnSalirMouseExited(evt);
             }
         });
-        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 40, 30));
+        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, 40, 30));
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -147,7 +147,7 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
             tableId.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 120, 100));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 230, 100));
 
         lblIdPersonaje.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPersonaje.setText(".");
@@ -157,7 +157,7 @@ public class TodosLosPersonajes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
