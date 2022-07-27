@@ -103,7 +103,7 @@ public class PostalesDAO {
         String[] title = {"ID DE LOS PERSONAJES"};
         String[] datos = new String[1];
         DefaultTableModel modelo2 = new DefaultTableModel(null, title);
-        String sql = "select distinct idPersonaje from postales where idPersonaje < 11 and idPerfil = ?;";
+        String sql = "Call pa_ListBuenos(?);";
         ListaSimplePersonajes ListS = new ListaSimplePersonajes();
         
         try {
