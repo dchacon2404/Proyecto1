@@ -200,7 +200,6 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSobresActionPerformed
 
     private void btnAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlbumActionPerformed
-        this.dispose();
         Album alb = new Album();
         alb.setVisible(true);
         alb.setLocationRelativeTo(null);

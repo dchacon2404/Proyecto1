@@ -215,9 +215,6 @@ public class Album extends javax.swing.JFrame {
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         this.dispose();
-        Principal p = new Principal(Integer.parseInt(lblIdUsuario.getText()));
-        p.setVisible(true);
-        p.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnBuenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuenosActionPerformed
