@@ -100,7 +100,7 @@ public class PostalesDAO {
     }
     
     public void ListaBuenos(ClasePostales postales, JTable table) {
-        String[] title = {"ID DE LOS PERSONAJES BUENOS"};
+        String[] title = {"ID DE LOS PERSONAJES"};
         String[] datos = new String[1];
         DefaultTableModel modelo2 = new DefaultTableModel(null, title);
         String sql = "select distinct idPersonaje from postales where idPersonaje < 11 and idPerfil = ?;";
@@ -130,7 +130,7 @@ public class PostalesDAO {
     
     public void ListaMalos(ClasePostales postales, JTable table) {
         
-        String[] title = {"ID DE LOS PERSONAJES MALOS"};
+        String[] title = {"ID DE LOS PERSONAJES"};
         String[] datos = new String[1];
         DefaultTableModel modelo2 = new DefaultTableModel(null, title);
         String sql = "select distinct idPersonaje from postales where idPersonaje > 10 and idPerfil = ?;";

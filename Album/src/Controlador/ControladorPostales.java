@@ -57,7 +57,6 @@ public class ControladorPostales implements ActionListener {
                 principal.setVisible(true);
                 principal.setLocationRelativeTo(null);
                 principal.btnSobres.setEnabled(false);
-                JOptionPane.showMessageDialog(principal, "Solo se pueden abir sobres cada 24H");
             }
         }
     }

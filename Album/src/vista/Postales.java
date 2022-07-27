@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 
 public class Postales extends javax.swing.JFrame {
@@ -246,15 +247,16 @@ public class Postales extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseExited
 
     private void btnAbrirPostal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal2ActionPerformed
-        
+        btnAbrirPostal2.setVisible(false);
     }//GEN-LAST:event_btnAbrirPostal2ActionPerformed
 
     private void btnAbrirPostal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal1ActionPerformed
-        
+        btnAbrirPostal1.setVisible(false);
+        JOptionPane.showMessageDialog(this, "Solo se pueden abir sobres cada 24H");
     }//GEN-LAST:event_btnAbrirPostal1ActionPerformed
 
     private void btnAbrirPostal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal3ActionPerformed
-        
+        btnAbrirPostal3.setVisible(false);
     }//GEN-LAST:event_btnAbrirPostal3ActionPerformed
 
     /**

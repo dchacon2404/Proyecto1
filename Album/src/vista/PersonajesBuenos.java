@@ -29,7 +29,6 @@ public class PersonajesBuenos extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         head = new javax.swing.JPanel();
-        btnSalir = new javax.swing.JLabel();
         lblPersonaje = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
         lblMiId = new javax.swing.JLabel();
@@ -38,6 +37,7 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         tableId = new javax.swing.JTable();
         lblIdPersonaje = new javax.swing.JLabel();
         lblPath = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -63,31 +63,14 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         head.setLayout(headLayout);
         headLayout.setHorizontalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
         headLayout.setVerticalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 30));
-
-        btnSalir.setBackground(new java.awt.Color(0, 0, 0));
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 0, 0));
-        btnSalir.setText("    X");
-        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnSalirMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnSalirMouseExited(evt);
-            }
-        });
-        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 40, 30));
+        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 30));
 
         lblPersonaje.setBackground(new java.awt.Color(0, 0, 0));
         lblPersonaje.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -141,7 +124,7 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableId);
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 120, 100));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 190, 100));
 
         lblIdPersonaje.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPersonaje.setText(".");
@@ -151,19 +134,32 @@ public class PersonajesBuenos extends javax.swing.JFrame {
         lblPath.setText(".");
         bg.add(lblPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 50, -1));
 
+        btnSalir.setBackground(new java.awt.Color(0, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 0, 0));
+        btnSalir.setText("    X");
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 40, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
         );
 
         pack();
