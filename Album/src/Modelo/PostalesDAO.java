@@ -47,7 +47,7 @@ public class PostalesDAO {
     
     public int agregarP1(ClasePostales postales) {
         int r = 0;
-        String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
+        String sql = "Call pa_AgregarP1(?,?,?)";
         
         try {
             cnn = conexion.getConnection();
@@ -65,7 +65,7 @@ public class PostalesDAO {
     
     public int agregarP2(ClasePostales postales) {
         int r = 0;
-        String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
+        String sql = "Call pa_AgregarP1(?,?,?)";
         
         try {
             cnn = conexion.getConnection();
@@ -83,7 +83,7 @@ public class PostalesDAO {
     
     public int agregarP3(ClasePostales postales) {
         int r = 0;
-        String sql = "insert into postales (idPerfil, idPersonaje, imagen) values (?, ?, ?)";
+        String sql = "Call pa_AgregarP1(?,?,?)";
         
         try {
             cnn = conexion.getConnection();
