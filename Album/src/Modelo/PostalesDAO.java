@@ -20,7 +20,7 @@ public class PostalesDAO {
     Personajes per = new Personajes();
     
     public void traerPostal1(JLabel label1, JLabel label2, JLabel label3) {
-        String sql = "select idPersonaje, imagen from personajes order by rand() limit 1;";
+        String sql = "call pa_TraerPostal;";
 
         try {
             cnn = conexion.getConnection();
