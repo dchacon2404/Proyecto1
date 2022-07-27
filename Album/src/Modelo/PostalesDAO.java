@@ -133,7 +133,7 @@ public class PostalesDAO {
         String[] title = {"ID DE LOS PERSONAJES"};
         String[] datos = new String[1];
         DefaultTableModel modelo2 = new DefaultTableModel(null, title);
-        String sql = "select distinct idPersonaje from postales where idPersonaje > 10 and idPerfil = ?;";
+        String sql = "call pa_ListMalos(?)";
         ListaSimplePersonajes ListS = new ListaSimplePersonajes();
         
         try {
@@ -165,7 +165,7 @@ public class PostalesDAO {
         String[] title = {"ID DE TODOS MIS PERSONAJES"};
         String[] datos = new String[1];
         DefaultTableModel modelo = new DefaultTableModel(null, title);
-        String sql = "select distinct idPersonaje from postales where idPerfil = ?;";
+        String sql = "call pa_ListTodos(?);";
         DoublyLinkedList lista = new DoublyLinkedList();
         
         try {
