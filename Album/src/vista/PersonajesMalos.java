@@ -191,14 +191,15 @@ public class PersonajesMalos extends javax.swing.JFrame {
 
     private void tableIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableIdMouseClicked
 
-        PreparedStatement ps;
+       PreparedStatement ps;
         ResultSet rs;
         Connection cnn;
         Conexion conexion = new Conexion();
         int fila = tableId.getSelectedRow();
         lblIdPersonaje.setText(tableId.getValueAt(fila, 0).toString());
 
-        String sql = "Select imagen from postales where idPerfil = ? and idPersonaje = ?";
+        String sql = "SELECT imagen FROM album.postales\n" +         
+                     "where idPerfil = ? and idPersonaje = ?";
 
         try {
             cnn = conexion.getConnection();
@@ -217,6 +218,8 @@ public class PersonajesMalos extends javax.swing.JFrame {
         }
         } catch (SQLException e) {
         }
+
+
     }//GEN-LAST:event_tableIdMouseClicked
 
     /**

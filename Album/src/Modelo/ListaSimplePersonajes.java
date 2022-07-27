@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 
-public class ListaSimplePersonajesBuenos {
+public class ListaSimplePersonajes {
     Connection cnn;
     PreparedStatement ps;
     ResultSet rs;
@@ -15,7 +15,7 @@ public class ListaSimplePersonajesBuenos {
     private NodePostales head;
     private NodePostales tail;
 
-    public ListaSimplePersonajesBuenos() {
+    public ListaSimplePersonajes() {
     }
 
     public NodePostales getHead() {
