@@ -128,12 +128,10 @@ public class Album extends javax.swing.JFrame {
 
         lblIdUsuario.setBackground(new java.awt.Color(0, 0, 0));
         lblIdUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblIdUsuario.setForeground(new java.awt.Color(255, 255, 0));
         lblIdUsuario.setText(".");
 
         lblId.setBackground(new java.awt.Color(0, 0, 0));
         lblId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblId.setForeground(new java.awt.Color(255, 255, 0));
         lblId.setText("Mi id:");
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);

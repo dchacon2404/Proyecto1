@@ -103,13 +103,11 @@ public class Repetidas extends javax.swing.JFrame {
 
         lblMiId.setBackground(new java.awt.Color(0, 0, 0));
         lblMiId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblMiId.setForeground(new java.awt.Color(255, 255, 0));
         lblMiId.setText("MI id:");
         bg.add(lblMiId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         lblIdPerfil.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPerfil.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblIdPerfil.setForeground(new java.awt.Color(255, 255, 0));
         lblIdPerfil.setText(".");
         bg.add(lblIdPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 40, -1));
 

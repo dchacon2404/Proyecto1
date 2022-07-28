@@ -52,6 +52,7 @@ public class ControladorPostales implements ActionListener {
                 agregarP1();
                 agregarP2();
                 agregarP3();
+                JOptionPane.showMessageDialog(pantalla, "Solo se pueden abir sobres cada 24H");
                 pantalla.dispose();
                 Principal principal = new Principal(Integer.parseInt(pantalla.lblIdUsuario.getText()));
                 principal.setVisible(true);
