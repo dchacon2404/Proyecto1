@@ -130,10 +130,10 @@ public class Principal extends javax.swing.JFrame {
         );
         headLayout.setVerticalGroup(
             headLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 33, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, -1));
+        bg.add(head, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 30));
 
         lblId.setBackground(new java.awt.Color(0, 0, 0));
         lblId.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

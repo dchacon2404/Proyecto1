@@ -140,13 +140,11 @@ public class Postales extends javax.swing.JFrame {
 
         lblIdUsuario.setBackground(new java.awt.Color(0, 0, 0));
         lblIdUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblIdUsuario.setForeground(new java.awt.Color(255, 255, 0));
         lblIdUsuario.setText(".");
         bg.add(lblIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 40, -1));
 
         lblId.setBackground(new java.awt.Color(0, 0, 0));
         lblId.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblId.setForeground(new java.awt.Color(255, 255, 0));
         lblId.setText("Mi id:");
         bg.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
@@ -177,19 +175,16 @@ public class Postales extends javax.swing.JFrame {
         lblIdPostal1.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPostal1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPostal1.setForeground(new java.awt.Color(255, 255, 0));
-        lblIdPostal1.setText(".");
         bg.add(lblIdPostal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 30, 30));
 
         lblIdPostal2.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPostal2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPostal2.setForeground(new java.awt.Color(255, 255, 0));
-        lblIdPostal2.setText(".");
         bg.add(lblIdPostal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 30, 30));
 
         lblIdPostal3.setBackground(new java.awt.Color(0, 0, 0));
         lblIdPostal3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdPostal3.setForeground(new java.awt.Color(255, 255, 0));
-        lblIdPostal3.setText(".");
         bg.add(lblIdPostal3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 30, 30));
 
         lblPath1.setBackground(new java.awt.Color(0, 0, 0));
@@ -252,7 +247,6 @@ public class Postales extends javax.swing.JFrame {
 
     private void btnAbrirPostal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal1ActionPerformed
         btnAbrirPostal1.setVisible(false);
-        JOptionPane.showMessageDialog(this, "Solo se pueden abir sobres cada 24H");
     }//GEN-LAST:event_btnAbrirPostal1ActionPerformed
 
     private void btnAbrirPostal3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirPostal3ActionPerformed
